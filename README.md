@@ -10,6 +10,7 @@
 
 ## Migrations
 
+ - python3 manage.py showmigrations
  - python3 manage.py migrate
 
 # Create a superuser to login to admin
