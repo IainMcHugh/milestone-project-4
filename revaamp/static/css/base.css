@@ -25,7 +25,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 9000;
+    z-index: 9900;
 }
 
 .header-offset {
@@ -37,19 +37,27 @@ header {
     color: var(--PURPLE_PLUM);
 }
 
+.header-search {
+    display: none;
+}
+
 .header-dropdown {
     display: none;
-    position: absolute;
+    position: fixed;
     top: 100px;
     left: 0;
     right: 0;
     border-radius: 0 0 24px 24px;
     background-color: var(--OFFWHITE);
     height: 60vh;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.13);
     animation: headerDropdown 800ms ease-in-out forwards;
-    z-index: 0;
+    z-index: 9000;
     padding: 24px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.12), 
+              0 2px 2px rgba(0,0,0,0.12), 
+              0 4px 4px rgba(0,0,0,0.12), 
+              0 8px 8px rgba(0,0,0,0.12),
+              0 16px 16px rgba(0,0,0,0.12);
 }
 
 .dropdown-close {
@@ -94,7 +102,116 @@ header {
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.13);
 }
 
+/* Footer */
+
+footer {
+    background-color: var(--OFFBLACK);
+    color: white;
+    height: 40vh;
+    padding: 18px;
+}
+
 /* Homepage */
+
+.home-search-container {
+    background-color: var(--PURPLE);
+    padding: 28px 24px 48px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.13);
+}
+
+.search-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.search-form > label {
+    color: var(--WHITE);
+    font-size: 28px;
+    margin-bottom: 16px;
+ }
+
+.input-container {
+    position: relative;
+}
+
+.search-container {
+    position: relative;
+    height: 48px;
+    display: flex;
+    min-width: 400px;
+    max-width: 700px;
+}
+
+.search-container > input {
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+    padding: 0 8px;
+    font-size: 18px;
+    font-family: 'PT Mono', monospace;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.12), 
+              0 2px 2px rgba(0,0,0,0.12), 
+              0 4px 4px rgba(0,0,0,0.12), 
+              0 8px 8px rgba(0,0,0,0.12),
+              0 16px 16px rgba(0,0,0,0.12);
+}
+
+.search-container > input::placeholder {
+    color: var(--PASTEL_PINK);
+}
+
+.search-container > input:focus {
+    border-radius: 8px 8px 0 0;
+}
+
+.search-container > input:focus ~ button {
+    border-radius: 8px 8px 0 8px;
+}
+
+.search-container > button {
+    border: 0;
+    outline: 0;
+    position: absolute;
+    top:0;
+    right: 0;
+    bottom: 0;
+    /* height: 48px; */
+    width: 48px;
+    border-radius: 8px;
+    background-color: var(--PASTEL_PINK);
+}
+
+.search-suggestions {
+    background-color: var(--WHITE);
+    position: absolute;
+    top: 48px;
+    left: 0;
+    right: 0;
+    min-width: 400px;
+    max-width: 700px;
+    padding: 8px 0;
+    border-radius: 0 0 8px 8px;
+    z-index: 9000;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.12), 
+              0 2px 2px rgba(0,0,0,0.12), 
+              0 4px 4px rgba(0,0,0,0.12), 
+              0 8px 8px rgba(0,0,0,0.12),
+              0 16px 16px rgba(0,0,0,0.12);
+}
+
+.search-items > li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.search-items > li:hover {
+    background-color: var(--OFFWHITE);
+}
+
 .home-container {
     background: url('/media/homepage_hero.jpg') no-repeat center center fixed;
     background-size: cover; 
@@ -111,11 +228,48 @@ header {
 
 .home-hero-text {
     position: absolute;
-    top: 24px;
+    top: 36px;
     left: 24px;
+    font-size: 1.5em;
+    line-height: 1.8em;
+    width: 80vw;
+    color: var(--OFFWHITE);
+}
+
+.home-hero-btn {
+    position: absolute;
+    bottom: 36px;
+    right: 24px;
 }
 
 /* Dumb elements */
+
+.primary-btn {
+    cursor: pointer;
+    outline: 0;
+    border: 0;
+    background-color: var(--ORCHID_CRAYOLA);
+    color: white;
+    height: 40px;
+    font-size: 18px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-family: 'PT Mono', monospace;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.12), 
+              0 2px 2px rgba(0,0,0,0.12), 
+              0 4px 4px rgba(0,0,0,0.12), 
+              0 8px 8px rgba(0,0,0,0.12),
+              0 16px 16px rgba(0,0,0,0.12);
+}
+
+.primary-btn:hover,
+.primary-btn:active {
+    opacity: 0.9;
+}
+
+.lg {
+    height: 48px;
+}
 
 .fake-btn {
     border: none;
@@ -132,6 +286,10 @@ header {
     color: var(--PURPLE_PLUM);
 }
 
+.fa-search {
+    color: var(--OFFWHITE);
+}
+
 /* Animations */
 
 @keyframes headerDropdown {
@@ -146,12 +304,25 @@ header {
 
 /* Medium */
 @media only screen and (min-width: 768px) {
-    .header-offset {
-        /* padding-top: 150px; */
+    .header-search {
+        display: block;
+        width: 70vw;
     }
+
+    .home-search-container {
+        display: none;
+    }
+
+
+.home-container {
+    height: 90vh;
+    width: auto;
+}
 }
 
 /* Large */
 @media only screen and (min-width: 1004px) {
-    
+    .header-search {
+        width: 80vw;
+    }
 }

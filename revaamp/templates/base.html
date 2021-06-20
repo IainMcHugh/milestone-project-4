@@ -40,6 +40,27 @@
   <body>
     <header>
         <h2 class='site_logo'>REVAAMP</h2>
+
+        <div class="header-search">
+          <form class='search-form'>
+            <!-- <label for="search">Search Revaamp</label> -->
+            <div class="input-container">
+                <div class='search-container'>
+                    <input type="text" name='search' id='search' placeholder="Search laptops" autocomplete="off">
+                    <button type='submit'><i class="fas fa-search fa-lg"></i></button>
+                </div>
+                <!-- <div class="search-suggestions">
+                    <ul class='search-items'>
+                        <li>Item 1</li>
+                        <li>Item 2</li>
+                        <li>Item 3</li>
+                    </ul>
+                </div> -->
+            </div>
+        </form>
+  
+        </div>
+        
         <button class='fake-btn toggle-dropdown'><i class="fas fa-bars fa-2x"></i></button>
     </header>
     <div class=header-dropdown>
@@ -90,7 +111,10 @@
     
     {% block postloadjs %}
     {% endblock %}
-
+    
+    <footer>
+      This is the footer
+    </footer>
   </div>
   </body>
 </html>

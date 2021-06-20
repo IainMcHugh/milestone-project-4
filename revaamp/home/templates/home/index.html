@@ -2,7 +2,30 @@
 {% load static %}
 
 {% block content %}
-    <div class="home-container">
-        <div class='home-hero-overlay'></div>
-    </div>
+    <section class="home">
+        <div class='home-search-container'>
+            <form class='search-form'>
+                <label for="search">Search Revaamp</label>
+                <div class="input-container">
+                    <div class='search-container'>
+                        <input type="text" name='search' id='search' placeholder="Search laptops" autocomplete="off">
+                        <button type='submit'><i class="fas fa-search fa-lg"></i></button>
+                    </div>
+                    <!-- <div class="search-suggestions">
+                        <ul class='search-items'>
+                            <li>Item 1</li>
+                            <li>Item 2</li>
+                            <li>Item 3</li>
+                        </ul>
+                    </div> -->
+                </div>
+            </form>
+        </div>
+        <div class="home-container">
+        <div class='home-hero-overlay'>
+            <p class='home-hero-text'>Find the perfect laptop right here, just for you</p>
+            <button class='home-hero-btn primary-btn lg'>SHOP NOW</button>
+        </div>
+        </div>
+    </section>
 {% endblock %}
