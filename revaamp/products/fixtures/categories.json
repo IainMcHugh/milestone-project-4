@@ -1,0 +1,74 @@
+[
+    {
+      "pk": 1,
+      "model": "products.category",
+      "fields": {
+        "name": "apple_macbooks",
+        "friendly_name": "Apple MacBooks"
+      }
+    },
+    {
+      "pk": 2,
+      "model": "products.category",
+      "fields": {
+        "name": "lenovo_laptops",
+        "friendly_name": "Lenovo Laptops"
+      }
+    },
+    {
+      "pk": 3,
+      "model": "products.category",
+      "fields": {
+        "name": "tablets",
+        "friendly_name": "Tablets"
+      }
+    },
+    {
+      "pk": 4,
+      "model": "products.category",
+      "fields": {
+        "name": "apple_macs",
+        "friendly_name": "Apple Macs"
+      }
+    },
+    {
+      "pk": 5,
+      "model": "products.category",
+      "fields": {
+        "name": "dell_home_computers",
+        "friendly_name": "Dell Home Computers"
+      }
+    },
+    {
+      "pk": 6,
+      "model": "products.category",
+      "fields": {
+        "name": "gaming_pcs",
+        "friendly_name": "Gaming PCs"
+      }
+    },
+    {
+      "pk": 7,
+      "model": "products.category",
+      "fields": {
+        "name": "keyboards",
+        "friendly_name": "Keyboards"
+      }
+    },
+    {
+      "pk": 8,
+      "model": "products.category",
+      "fields": {
+        "name": "mice",
+        "friendly_name": "Mice"
+      }
+    },
+    {
+      "pk": 9,
+      "model": "products.category",
+      "fields": {
+        "name": "headphones",
+        "friendly_name": "Headphones"
+      }
+    }
+  ]

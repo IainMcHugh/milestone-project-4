@@ -19,7 +19,6 @@
  - python3 manage.py createsuperuser
  - (username, email, password)
 
-
 ## Colour Scheme
 
  - #531CB3

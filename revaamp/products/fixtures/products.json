@@ -1,0 +1,301 @@
+[
+    {
+        "pk": 1,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp10000000",
+            "name": "Apple MacBook Pro 13\" 2015 i5 8GB 128GB",
+            "description": "The MacBook Pro 13-inch (2013)'s middle configuration comes with a 2.4GHz Intel Core i5-4258U processor, Intel Iris 5100 graphics, 8GB of memory, and a 128GB Flash Storage module. Make sure you configure or choose the hardware you need for your purposes, as the system is sealed and can't be upgraded down the road.",
+            "price": 849,
+            "category": 1,
+            "rating": 3,
+            "image_url": "https://cdn.vox-cdn.com/thumbor/jcS5lzMne9RPD7vh8eat7JniHtE=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/68704386/vpavic_4291_20201113_0366.0.0.jpg"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp10000001",
+            "name": "Apple MacBook Pro 13\" 2015 i5 8GB 256GB",
+            "description": "The MacBook Pro 13-inch (2013)'s middle configuration comes with a 2.4GHz Intel Core i5-4258U processor, Intel Iris 5100 graphics, 8GB of memory, and a 256GB Flash Storage module. Make sure you configure or choose the hardware you need for your purposes, as the system is sealed and can't be upgraded down the road.",
+            "price": 899,
+            "category": 1,
+            "rating": 4,
+            "image_url": "https://cdn.vox-cdn.com/thumbor/jcS5lzMne9RPD7vh8eat7JniHtE=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/68704386/vpavic_4291_20201113_0366.0.0.jpg"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp10000002",
+            "name": "Apple MacBook Pro 13\" 2017 i7 8GB 256GB",
+            "description": "The MacBook Pro 13-inch (2017)'s middle configuration comes with a 2.4GHz Intel Core i7-4258U processor, Intel Iris 5100 graphics, 8GB of memory, and a 256GB Flash Storage module. Make sure you configure or choose the hardware you need for your purposes, as the system is sealed and can't be upgraded down the road.",
+            "price": 920,
+            "category": 1,
+            "rating": 4,
+            "image_url": "https://cdn.vox-cdn.com/thumbor/jcS5lzMne9RPD7vh8eat7JniHtE=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/68704386/vpavic_4291_20201113_0366.0.0.jpg"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp10000003",
+            "name": "Apple MacBook Pro 15\" 2017 i5 8GB 512GB",
+            "description": "The MacBook Pro 15-inch (2017)'s middle configuration comes with a 2.4GHz Intel Core i7-4258U processor, Intel Iris 5100 graphics, 8GB of memory, and a 512GB Flash Storage module. Make sure you configure or choose the hardware you need for your purposes, as the system is sealed and can't be upgraded down the road.",
+            "price": 1049,
+            "category": 1,
+            "rating": 5,
+            "image_url": "https://cdn.vox-cdn.com/thumbor/jcS5lzMne9RPD7vh8eat7JniHtE=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/68704386/vpavic_4291_20201113_0366.0.0.jpg"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp10000004",
+            "name": "Refurbished Lenovo Thinkpad T450 Laptop",
+            "description": "Built to perform and engineered to endure, our flagship laptops have you covered In the office, out in the field, and everywhere in between. Productivity-rich features like epic battery life, blazing-fast USB –C Thunderbolt ports, and powerful processing keep you up and running.",
+            "price": 329,
+            "category": 2,
+            "rating": 4,
+            "image_url": "https://cdn.vox-cdn.com/thumbor/jcS5lzMne9RPD7vh8eat7JniHtE=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/68704386/vpavic_4291_20201113_0366.0.0.jpg"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp10000005",
+            "name": "Refurbished Lenovo Thinkpad X260 i5 8GB 250GB Laptop",
+            "description": "Built to perform and engineered to endure, our flagship laptops have you covered In the office, out in the field, and everywhere in between. Productivity-rich features like epic battery life, blazing-fast USB –C Thunderbolt ports, and powerful processing keep you up and running.",
+            "price": 449,
+            "category": 2,
+            "rating": 5,
+            "image_url": "https://cdn.vox-cdn.com/thumbor/jcS5lzMne9RPD7vh8eat7JniHtE=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/68704386/vpavic_4291_20201113_0366.0.0.jpg"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp10000006",
+            "name": "Refurbished Lenovo Thinkpad T460 i5 256GB SSD Laptop",
+            "description": "Built to perform and engineered to endure, our flagship laptops have you covered In the office, out in the field, and everywhere in between. Productivity-rich features like epic battery life, blazing-fast USB –C Thunderbolt ports, and powerful processing keep you up and running.",
+            "price": 400,
+            "category": 2,
+            "rating": 3,
+            "image_url": "https://cdn.vox-cdn.com/thumbor/jcS5lzMne9RPD7vh8eat7JniHtE=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/68704386/vpavic_4291_20201113_0366.0.0.jpg"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp10000007",
+            "name": "Lenovo Thinkpad Carbon X1",
+            "description": "Built to perform and engineered to endure, our flagship laptops have you covered In the office, out in the field, and everywhere in between. Productivity-rich features like epic battery life, blazing-fast USB –C Thunderbolt ports, and powerful processing keep you up and running.",
+            "price": 749,
+            "category": 2,
+            "rating": 5,
+            "image_url": "https://cdn.vox-cdn.com/thumbor/jcS5lzMne9RPD7vh8eat7JniHtE=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/68704386/vpavic_4291_20201113_0366.0.0.jpg"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp10000008",
+            "name": "Lenovo Thinkpad P50 15\" Workstation Laptop",
+            "description": "Built to perform and engineered to endure, our flagship laptops have you covered In the office, out in the field, and everywhere in between. Productivity-rich features like epic battery life, blazing-fast USB –C Thunderbolt ports, and powerful processing keep you up and running.",
+            "price": 999,
+            "category": 2,
+            "rating": 5,
+            "image_url": "https://cdn.vox-cdn.com/thumbor/jcS5lzMne9RPD7vh8eat7JniHtE=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/68704386/vpavic_4291_20201113_0366.0.0.jpg"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp10000009",
+            "name": "Refurbished Apple iPad Mini 4",
+            "description": "This Refurbished Apple iPad Mini 4 (2018) has 128GB storage and 3G enabled.",
+            "price": 259,
+            "category": 3,
+            "rating": 3,
+            "image_url": "https://cdn.vox-cdn.com/thumbor/jcS5lzMne9RPD7vh8eat7JniHtE=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/68704386/vpavic_4291_20201113_0366.0.0.jpg"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp10000010",
+            "name": "Refurbished Apple iPad Air",
+            "description": "This Refurbished Apple iPad Air (2020) has 64GB storage and 3G enabled.",
+            "price": 400,
+            "category": 3,
+            "rating": 4,
+            "image_url": "https://cdn.vox-cdn.com/thumbor/jcS5lzMne9RPD7vh8eat7JniHtE=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/68704386/vpavic_4291_20201113_0366.0.0.jpg"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp10000011",
+            "name": "Samsung Galaxy Tab S6 Lite",
+            "description": "This Refurbished Samsung Galaxy Tab S6 Lite has 64GB storage, 10.4 inch screen and is 3G enabled",
+            "price": 290,
+            "category": 2,
+            "rating": 5,
+            "image_url": "https://cdn.vox-cdn.com/thumbor/jcS5lzMne9RPD7vh8eat7JniHtE=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/68704386/vpavic_4291_20201113_0366.0.0.jpg"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp10000012",
+            "name": "Refurbished Microsoft Surface Pro 6",
+            "description": "This Refurbished Microsoft Surface Pro 6 has 256GB storage, 12.3 inch screen, i5 intel processor and ships with windows 10.",
+            "price": 700,
+            "category": 3,
+            "rating": 5,
+            "image_url": "https://cdn.vox-cdn.com/thumbor/jcS5lzMne9RPD7vh8eat7JniHtE=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/68704386/vpavic_4291_20201113_0366.0.0.jpg"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp10000013",
+            "name": "Apple iMac 21.5\" 2013",
+            "description": "The all-in-one iMac features a beautiful 21.5-inch widescreen display, fourth generation quad-core Intel Core processors and Nvidia graphics make it reliable and efficient. And it comes as standard with 8GB memory, a 1TB hard drive and advanced, high-speed connections, including two Thunderbolt ports, four USB 3 ports and 802.11ac Wi-Fi. All in a thin enclosure that's only 5mm at the edge.",
+            "price": 1200,
+            "category": 4,
+            "rating": 4,
+            "image_url": "https://cdn.vox-cdn.com/thumbor/jcS5lzMne9RPD7vh8eat7JniHtE=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/68704386/vpavic_4291_20201113_0366.0.0.jpg"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp10000014",
+            "name": "Apple iMac 27\" 2011",
+            "description": "The all-in-one iMac features a beautiful 27-inch widescreen display, fourth generation quad-core Intel Core processors and Nvidia graphics make it reliable and efficient. And it comes as standard with 8GB memory, a 1TB hard drive and advanced, high-speed connections, including two Thunderbolt ports, four USB 3 ports and 802.11ac Wi-Fi. All in a thin enclosure that's only 5mm at the edge.",
+            "price": 900,
+            "category": 4,
+            "rating": 3,
+            "image_url": "https://cdn.vox-cdn.com/thumbor/jcS5lzMne9RPD7vh8eat7JniHtE=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/68704386/vpavic_4291_20201113_0366.0.0.jpg"
+        }
+    },
+    {
+        "pk": 16,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp10000015",
+            "name": "Refurbished Dell Desktop Optiplex tower",
+            "description": "This refurbished Dell Desktop Optiplex tower is all you will ever need to get your work done.",
+            "price": 599,
+            "category": 5,
+            "rating": 5,
+            "image_url": "https://cdn.vox-cdn.com/thumbor/jcS5lzMne9RPD7vh8eat7JniHtE=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/68704386/vpavic_4291_20201113_0366.0.0.jpg"
+        }
+    },
+    {
+        "pk": 17,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp10000016",
+            "name": "Refurbished Dell Inspiron 3470",
+            "description": "This refurbished Dell Inspiron 3470 comes with intel core i5 9400 processor 8GB RAM and a 1TB hardrive.",
+            "price": 440,
+            "category": 5,
+            "rating": 4,
+            "image_url": "https://cdn.vox-cdn.com/thumbor/jcS5lzMne9RPD7vh8eat7JniHtE=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/68704386/vpavic_4291_20201113_0366.0.0.jpg"
+        }
+    },
+    {
+        "pk": 18,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp10000017",
+            "name": "Refurbished Dell Inspiron 3671",
+            "description": "This refurbished Dell Inspiron 3671 comes with intel core i5 9400 processor 8GB RAM and a 256GB hardrive.",
+            "price": 360,
+            "category": 5,
+            "rating": 2,
+            "image_url": "https://cdn.vox-cdn.com/thumbor/jcS5lzMne9RPD7vh8eat7JniHtE=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/68704386/vpavic_4291_20201113_0366.0.0.jpg"
+        }
+    },
+    {
+        "pk": 19,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp10000018",
+            "name": "Refurbished HP Omen 30L",
+            "description": "This monster Gaming PC will easily play any game you throw at it, with the AMD Ryzen 7 3700X Processor, Radeon RX 5700 8GB GPU, 16GB of DDR5 RAM, 2TB SSD storage.",
+            "price": 1200,
+            "category": 6,
+            "rating": 5,
+            "image_url": "https://cdn.vox-cdn.com/thumbor/jcS5lzMne9RPD7vh8eat7JniHtE=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/68704386/vpavic_4291_20201113_0366.0.0.jpg"
+        }
+    },
+    {
+        "pk": 20,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp10000019",
+            "name": "Refurbished PC Specialist - Custom Gaming PC",
+            "description": "This refurbished custom Gaming PC has a whopper AMD Ryzen 3 3200G processor, GeForce GTX 1650 4GB GPU, 8GB RAM, and 1TB of SSD storage.",
+            "price": 750,
+            "category": 6,
+            "rating": 4,
+            "image_url": "https://cdn.vox-cdn.com/thumbor/jcS5lzMne9RPD7vh8eat7JniHtE=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/68704386/vpavic_4291_20201113_0366.0.0.jpg"
+        }
+    },
+    {
+        "pk": 21,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp10000020",
+            "name": "Razor Mouse",
+            "description": "This will be a mouse",
+            "price": 35,
+            "category": 7,
+            "rating": 4,
+            "image_url": "https://cdn.vox-cdn.com/thumbor/jcS5lzMne9RPD7vh8eat7JniHtE=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/68704386/vpavic_4291_20201113_0366.0.0.jpg"
+        }
+    },
+    {
+        "pk": 21,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp10000021",
+            "name": "Razor Keyboard",
+            "description": "This will be a Keyboard",
+            "price": 80,
+            "category": 8,
+            "rating": 3,
+            "image_url": "https://cdn.vox-cdn.com/thumbor/jcS5lzMne9RPD7vh8eat7JniHtE=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/68704386/vpavic_4291_20201113_0366.0.0.jpg"
+        }
+    },
+    {
+        "pk": 21,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp10000022",
+            "name": "Headphones",
+            "description": "This will be headphones",
+            "price": 120,
+            "category": 9,
+            "rating": 5,
+            "image_url": "https://cdn.vox-cdn.com/thumbor/jcS5lzMne9RPD7vh8eat7JniHtE=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/68704386/vpavic_4291_20201113_0366.0.0.jpg"
+        }
+    }
+]
