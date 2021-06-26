@@ -513,6 +513,11 @@ footer {
 
     /* Products page */
 
+    .products-title {
+        font-size: 48px;
+        margin-bottom: 48px;
+    }
+
     .products-wrapper {
         grid-template-columns: repeat(3, 1fr);
         column-gap: 16px;
@@ -520,6 +525,10 @@ footer {
     }
 
     /* Foundations */
+
+    .foundation-wrapper {
+        padding: 48px 24px;
+    }
 
     .foundation-fw {
         width: 700px;
