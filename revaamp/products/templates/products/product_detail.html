@@ -5,9 +5,58 @@
     <section class="products">
         <div class="foundation-base">
             <div class="foundation-wrapper">
-                <h1 class='products-title'>Product Details</h1>
-                <p>{{ product.name }}</p>
+                <h1 class='product-title'>{{ product.name }}</h1>
+                <div class="product-image">
+                    <img src="{{product.image_url}}" alt="Product image">
+                </div>
+                <div class="product-pricerating">
+                    <p>${{product.price}}</p>
+                    <p>{{product.rating|floatformat:"2g"}}/5 Stars</p>
+                </div>
+                <p class='product-description'>{{ product.description}}</p>
             </div>
+            <div class='why-buy-banner'>
+                <h4 class='why-buy-title'>Why buy refurbished</h4>
+                <div class="why-buy-grid">
+                    <div class="why-buy-item">
+                        <i class="fas fa-battery-full fa-lg"></i>
+                        <p>You get power capabilities that match that of a brand new computer.</p>
+                    </div>
+                    <div class="why-buy-item">
+                        <i class="fas fa-battery-full fa-lg"></i>
+                        <p>You get power capabilities that match that of a brand new computer.</p>
+                    </div>
+                    <div class="why-buy-item">
+                        <i class="fas fa-battery-full fa-lg"></i>
+                        <p>You get power capabilities that match that of a brand new computer.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="related-products-wrapper foundation-wrapper">
+                <h4 class='related-products-title'>You may also like</h4>
+                <div class='products-wrapper'>
+                {% for related_product in related_products|slice:":4" %}
+                    <a class='fake-anchor' href="{% url 'product_detail' related_product.id %}">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="{{ related_product.image_url}}"/>
+                        </div>
+                        <div class="card-data">
+                            <p class="products-name">{{ related_product.name|truncatechars:30 }}</p>
+                            <p class="products-category">in {{ related_product.category|cut:"_" }}</p>
+                            <div class="products-pricerating">
+                                <p class="products-price">€{{ related_product.price|floatformat:"2g" }}</p>
+                                <p class="products-rating">{{ related_product.rating }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            </div>
+        </div>
+        <div class="sticky-buttons-wrapper">
+            <button href="{% url 'products' %}" class='secondary-btn sm'>Add to Card</button>
+            <button href="{% url 'products' %}" class='primary-btn sm'>Buy Now</button>
         </div>
     </section>
 {% endblock %}

@@ -263,7 +263,6 @@ footer {
 
 .products-name {
     font-size: 14px;
-    /* margin-bottom: 4px; */
 }
 
 .products-category {
@@ -285,6 +284,79 @@ footer {
 
 .products-rating {
     font-size: 14px; 
+}
+
+/* Product Detail page */
+
+.product-title {
+    font-size: 24px;
+    margin-bottom: 24px;
+}
+
+.product-image {
+    width: 100%;
+}
+
+.product-image > img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.12), 
+              0 2px 2px rgba(0,0,0,0.12), 
+              0 4px 4px rgba(0,0,0,0.12), 
+              0 8px 8px rgba(0,0,0,0.12),
+              0 16px 16px rgba(0,0,0,0.12);
+    margin-bottom: 24px;
+}
+
+.product-pricerating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.product-pricerating > p:first-child {
+    color: var(--AFRICAN_VIOLET);
+}
+
+.product-description {
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+.why-buy-banner {
+    padding: 16px 8px;
+    background: linear-gradient(to bottom right, var(--PURPLE_PLUM), var(--PURPLE));
+    margin-bottom: 28px;
+}
+
+.why-buy-title {
+    color: var(--OFFWHITE);
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+.why-buy-grid {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    row-gap: 12px;
+}
+
+.why-buy-item {
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    justify-content: center;
+    align-items: center;
+    column-gap: 8px;
+    color: var(--WHITE);
+    font-size: 12px;
+}
+
+.related-products-title {
+    font-size: 24px;
+    margin-bottom: 28px;
 }
 
 /* Foundation layouts */
@@ -323,13 +395,37 @@ footer {
               0 16px 16px rgba(0,0,0,0.12);
 }
 
+.secondary-btn {
+    cursor: pointer;
+    outline: 0;
+    border: 0;
+    background-color: var(--WHITE);
+    border: 1px solid var(--AFRICAN_VIOLET);
+    color: var(--AFRICAN_VIOLET);
+    height: 40px;
+    font-size: 18px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.12), 
+              0 2px 2px rgba(0,0,0,0.12), 
+              0 4px 4px rgba(0,0,0,0.12), 
+              0 8px 8px rgba(0,0,0,0.12),
+              0 16px 16px rgba(0,0,0,0.12);
+}
+
 .primary-btn:hover,
-.primary-btn:active {
+.primary-btn:active,
+.secondary-btn:hover,
+.secondary-btn:active {
     opacity: 0.9;
 }
 
 .lg {
     height: 48px;
+}
+
+.sm {
+    font-size: 12px;
 }
 
 .fake-btn {
@@ -373,6 +469,23 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.sticky-buttons-wrapper {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    background-color: var(--OFFWHITE);
+    padding: 8px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 8px;
+    box-shadow: 0 -1px 1px rgba(0,0,0,0.06), 
+              0 -2px 2px rgba(0,0,0,0.06), 
+              0 -4px 4px rgba(0,0,0,0.06);
 }
 
 /* Icons */
@@ -551,6 +664,10 @@ footer {
     
     .card-image > img {
         border-radius: 8px 8px 0 0;
+    }
+
+    .sticky-buttons-wrapper {
+        display: none;
     }
 }
 

@@ -24,9 +24,9 @@ def product_detail(request, product_id):
     """
 
     product = get_object_or_404(Product, pk=product_id)
+    # Update to be products only in same section
+    related_products = Product.objects.all()
 
-    context = {
-        "product": product,
-    }
+    context = {"product": product, "related_products": related_products}
 
     return render(request, "products/product_detail.html", context)
