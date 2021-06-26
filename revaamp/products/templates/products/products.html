@@ -3,7 +3,27 @@
 
 {% block content %}
     <section class="products">
-        <div>Hello from products page!</div>
-        <div> {{ products }} </div>
+        <div class="foundation-base">
+            <div class="foundation-wrapper">
+                <h1 class='products-title'>All Products</h1>
+                <div class='products-wrapper'>
+                    {% for product in products %}
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="{{ product.image_url}}"/>
+                        </div>
+                        <div class="card-data">
+                            <p class="products-name">{{ product.name|truncatechars:30 }}</p>
+                            <p class="products-category">in {{ product.category|cut:"_" }}</p>
+                            <div class="products-pricerating">
+                                <p class="products-price">€{{ product.price|floatformat:"2g" }}</p>
+                                <p class="products-rating">{{ product.rating }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
     </section>
 {% endblock %}
