@@ -337,6 +337,11 @@ footer {
     outline: none;
 }
 
+.fake-anchor {
+    text-decoration: none;
+    color: var(--OFFBLACK);
+}
+
 .card {
     height: 120px;
     display: grid;
