@@ -17,6 +17,7 @@ body {
 header {
     display: block;
     position: fixed;
+    top: 0;
     width: 100%;
     background-color: var(--OFFWHITE);
     height: 100px;
@@ -29,7 +30,7 @@ header {
 }
 
 .header-offset {
-    padding-top: 100px;
+    margin-top: 144px;
 }
 
 .site_logo {
