@@ -3,6 +3,10 @@
 
 {% block content %}
     <section class="cart">
-        Cart
+        <h1>Cart</h1>
+        {% if cart_items %}
+        {% else %}
+        <p>Your cart is empty!</p>
+        {% endif %}
     </section>
 {% endblock %}
