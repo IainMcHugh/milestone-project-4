@@ -17,15 +17,16 @@
                         </div>
                         <p class='product-description'>{{ product.description}}</p>
                         <p class='product-category mb16-md'>in {{ product.category.friendly_name }}</p>
-                        <select name="product-quantity" id="product-quantity" class='product-quantity mb16-md'>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="4">3</option>
-                        </select>
-                        <div class="product-buttons">
-                            <button href="{% url 'products' %}" class='secondary-btn sm mb8 mb16-lg'>Add to Cart</button>
-                            <button href="{% url 'products' %}" class='primary-btn sm'>Buy Now</button>
-                        </div>
+                        <form action="{% url 'add_to_cart' product.id %}" method="post" class='product-form'>
+                            {% csrf_token %}
+                            <p>Quantity:</p>
+                            <input type='number' value='1' min='1' max='99' name="quantity" id="id_qty_{{ product.id }}}" class='product-quantity mb16-md' data-item-id="{{ product.id }}"/>
+                            <div class="product-buttons">
+                                <button type='submit' href="{% url 'products' %}" class='secondary-btn sm mb8 mb16-lg'>Add to Cart</button>
+                                <button type='submit' href="{% url 'products' %}" class='primary-btn sm'>Buy Now</button>
+                            </div>
+                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        </form>
                     </div>
                 </div>
             </div>

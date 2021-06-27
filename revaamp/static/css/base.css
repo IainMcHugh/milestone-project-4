@@ -711,8 +711,11 @@ footer {
         order: 4;
     }
 
-    .product-buttons {
+    .product-form {
         order: 5;
+    }
+
+    .product-buttons {
         display: flex;
         flex-direction: column;
     }
