@@ -81,9 +81,9 @@
         <div class="nav-items-wrapper">
           <p>All Products</p>
           <div class='nav-items-secondary'>
-            <p>By Price</p>
-            <p>By Rating</p>
-            <p>By Category</p>
+            <a href="{% url 'products' %}?sort=price&direction=asc">By Price</a>
+            <a href="{% url 'products' %}?sort=rating&direction=desc">By Rating</a>
+            <a href="{% url 'products' %}?sort=category&direction=asc">By Category</a>
             <a href="{% url 'products' %}">All Products</a>
           </div>
         </div>
