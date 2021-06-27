@@ -326,6 +326,10 @@ footer {
     margin-bottom: 24px;
 }
 
+.product-buttons {
+    display: none;
+}
+
 .why-buy-banner {
     padding: 16px 8px;
     background: linear-gradient(to bottom right, var(--PURPLE_PLUM), var(--PURPLE));
@@ -352,6 +356,10 @@ footer {
     column-gap: 8px;
     color: var(--WHITE);
     font-size: 12px;
+}
+
+.why-buy-item-reverse {
+    grid-template-columns: 1fr 48px;
 }
 
 .related-products-title {
@@ -426,6 +434,14 @@ footer {
 
 .sm {
     font-size: 12px;
+}
+
+.mb8 {
+    margin-bottom: 8px;
+}
+
+.mb16 {
+    margin-bottom: 16px;
 }
 
 .fake-btn {
@@ -638,6 +654,77 @@ footer {
         row-gap: 48px;
     }
 
+    /* Product page */
+
+    .product-data {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        column-gap: 28px;
+    }
+
+    .product-information {
+        padding-top: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .product-description {
+        order: 1;
+    }
+
+    .product-category {
+        font-size: 18px;
+        color: var(--PASTEL_PINK);
+        order: 2;
+    }
+
+    .product-quantity {
+        font-size: 14px;
+        order: 3;
+    }
+
+    .product-pricerating {
+        order: 4;
+    }
+
+    .product-buttons {
+        order: 5;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .why-buy-banner {
+        padding: 24px 36px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
+        align-items: center;
+        column-gap: 28px;
+    }
+
+    .why-buy-title {
+        font-size: 36px;
+        margin-bottom: 0;
+    }
+
+    .why-buy-grid {
+        display: grid;
+        grid-template-rows: repeat(3, 1fr);
+        row-gap: 16px;
+    }
+
+    .why-buy-item {
+        display: grid;
+        grid-template-columns: 48px 1fr;
+        column-gap: 4px;
+    }
+
+    .why-buy-item-reverse {
+        grid-template-columns: 1fr 48px;
+    }
+
     /* Foundations */
 
     .foundation-wrapper {
@@ -670,6 +757,10 @@ footer {
     .sticky-buttons-wrapper {
         display: none;
     }
+
+    .mb16-md {
+        margin-bottom: 16px;
+    }
 }
 
 /* Large */
@@ -694,6 +785,12 @@ footer {
         width: 1000px;
         margin: 0 auto;
     }
+
+    /* Dummy elements */
+
+    .mb16-lg {
+        margin-bottom: 16px;
+    }
 }
 
 /* Extra Large */
@@ -707,5 +804,9 @@ footer {
     .foundation-fw {
         width: 1200px;
         margin: 0 auto;
+    }
+
+    .mb16-xl {
+        margin-bottom: 16px;
     }
 }

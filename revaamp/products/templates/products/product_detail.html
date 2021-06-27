@@ -6,25 +6,39 @@
         <div class="foundation-base">
             <div class="foundation-wrapper">
                 <h1 class='product-title'>{{ product.name }}</h1>
-                <div class="product-image">
-                    <img src="{{product.image_url}}" alt="Product image">
+                <div class="product-data">
+                    <div class="product-image">
+                        <img src="{{product.image_url}}" alt="Product image">
+                    </div>
+                    <div class="product-information">
+                        <div class="product-pricerating mb16-md">
+                            <p>${{product.price}}</p>
+                            <p>{{product.rating|floatformat:"2g"}}/5 Stars</p>
+                        </div>
+                        <p class='product-description'>{{ product.description}}</p>
+                        <p class='product-category mb16-md'>in {{ product.category }}</p>
+                        <select name="product-quantity" id="product-quantity" class='product-quantity mb16-md'>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="4">3</option>
+                        </select>
+                        <div class="product-buttons">
+                            <button href="{% url 'products' %}" class='secondary-btn sm mb8 mb16-lg'>Add to Cart</button>
+                            <button href="{% url 'products' %}" class='primary-btn sm'>Buy Now</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="product-pricerating">
-                    <p>${{product.price}}</p>
-                    <p>{{product.rating|floatformat:"2g"}}/5 Stars</p>
-                </div>
-                <p class='product-description'>{{ product.description}}</p>
             </div>
             <div class='why-buy-banner'>
-                <h4 class='why-buy-title'>Why buy refurbished</h4>
+                <h4 class='why-buy-title'>Why buy refurbished?</h4>
                 <div class="why-buy-grid">
                     <div class="why-buy-item">
                         <i class="fas fa-battery-full fa-lg"></i>
                         <p>You get power capabilities that match that of a brand new computer.</p>
                     </div>
-                    <div class="why-buy-item">
-                        <i class="fas fa-battery-full fa-lg"></i>
+                    <div class="why-buy-item why-buy-item-reverse">
                         <p>You get power capabilities that match that of a brand new computer.</p>
+                        <i class="fas fa-battery-full fa-lg"></i>
                     </div>
                     <div class="why-buy-item">
                         <i class="fas fa-battery-full fa-lg"></i>
@@ -32,6 +46,7 @@
                     </div>
                 </div>
             </div>
+            {% if related_products %}
             <div class="related-products-wrapper foundation-wrapper">
                 <h4 class='related-products-title'>You may also like</h4>
                 <div class='products-wrapper'>
@@ -53,10 +68,11 @@
                     </a>
                 {% endfor %}
             </div>
+            {% endif %}
             </div>
         </div>
         <div class="sticky-buttons-wrapper">
-            <button href="{% url 'products' %}" class='secondary-btn sm'>Add to Card</button>
+            <button href="{% url 'products' %}" class='secondary-btn sm'>Add to Cart</button>
             <button href="{% url 'products' %}" class='primary-btn sm'>Buy Now</button>
         </div>
     </section>
