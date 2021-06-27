@@ -16,7 +16,7 @@
                             <p>{{product.rating|floatformat:"2g"}}/5 Stars</p>
                         </div>
                         <p class='product-description'>{{ product.description}}</p>
-                        <p class='product-category mb16-md'>in {{ product.category }}</p>
+                        <p class='product-category mb16-md'>in {{ product.category.friendly_name }}</p>
                         <select name="product-quantity" id="product-quantity" class='product-quantity mb16-md'>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -58,7 +58,7 @@
                         </div>
                         <div class="card-data">
                             <p class="products-name">{{ related_product.name|truncatechars:30 }}</p>
-                            <p class="products-category">in {{ related_product.category|cut:"_" }}</p>
+                            <p class="products-category">in {{ related_product.category.friendly_name }}</p>
                             <div class="products-pricerating">
                                 <p class="products-price">€{{ related_product.price|floatformat:"2g" }}</p>
                                 <p class="products-rating">{{ related_product.rating }}</p>

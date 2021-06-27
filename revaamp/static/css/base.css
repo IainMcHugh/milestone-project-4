@@ -505,6 +505,28 @@ footer {
     transition: transform 200ms ease-in-out;
 }
 
+.tags {
+    display: flex;
+}
+
+.tags > * {
+    text-decoration: none;
+    font-size: 12px;
+    background-color: var(--PURPLE);
+    border: 1px solid var(--PURPLE_PLUM);
+    color: var(--WHITE);
+    padding: 6px 12px;
+    border-radius: 16px;
+    margin-right: 8px;
+    transition: all 100ms linear;
+}
+
+.tags > *:hover {
+    background-color: var(--WHITE);
+    color: var(--PURPLE);
+    border: 1px solid var(--PURPLE);
+}
+
 /* Icons */
 
 .fa-bars {
