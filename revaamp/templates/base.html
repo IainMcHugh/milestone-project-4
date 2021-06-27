@@ -72,6 +72,9 @@
           </button>
           <a href="{% url 'view_cart' %}" class="icon-wrapper">
             <i class="fas fa-shopping-cart fa-2x"></i>
+            {% if grand_total %}
+            <p>${{ grand_total|floatformat:2 }}</p>
+            {% else %}
             <p>$0.00</p>
           </a>
         </div>
