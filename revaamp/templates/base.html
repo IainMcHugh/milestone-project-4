@@ -40,7 +40,9 @@
   </head>
   <body>
     <header>
-        <h2 class='site_logo'>REVAAMP</h2>
+        <a href="{% url 'home' %}">
+          <h2 class='site_logo'>REVAAMP</h2>
+        </a>
 
         <div class="header-search">
           <form class='search-form' method="GET" action="{% url 'products' %}">
@@ -88,28 +90,28 @@
         <div class="nav-items-wrapper">
           <p>Laptops</p>
           <div class='nav-items-secondary'>
-            <p>Apple Laptops</p>
-            <p>Lenovo Laptops</p>
-            <p>Tablets</p>
-            <p>All Laptops</p>
+            <a href="{% url 'products' %}?category=apple_macbooks">Apple Laptops</a>
+            <a href="{% url 'products' %}?category=lenovo_laptops">Lenovo Laptops</a>
+            <a href="{% url 'products' %}?category=tablets">Tablets</a>
+            <a href="{% url 'products' %}?category=apple_macbooks,lenovo_laptops,tablets">All Laptops</a>
           </div>
         </div>
         <div class="nav-items-wrapper">
           <p>PCs</p>
           <div class='nav-items-secondary'>
-            <p>Apple Macs</p>
-            <p>Dell Home Computers</p>
-            <p>Gaming PCs</p>
-            <p>All PCs</p>
+            <a href="{% url 'products' %}?category=apple_macs">Apple Macs</a>
+            <a href="{% url 'products' %}?category=dell_home_computers">Dell Home Computers</a>
+            <a href="{% url 'products' %}?category=gaming_pcs">Gaming PCs</a>
+            <a href="{% url 'products' %}?category=apple_macs,dell_home_computers,gaming_pcs">All PCs</a>
           </div>
         </div>
         <div class="nav-items-wrapper">
           <p>Accessories</p>
           <div class='nav-items-secondary'>
-            <p>Keyboards</p>
-            <p>Mice</p>
-            <p>Headphones</p>
-            <p>All Accessories</p>
+            <a href="{% url 'products' %}?category=keyboards">Keyboards</a>
+            <a href="{% url 'products' %}?category=mice">Mice</a>
+            <a href="{% url 'products' %}?category=headphones">Headphones</a>
+            <a href="{% url 'products' %}?category=keyboards,mice,headphones">All Accessories</a>
           </div>
         </div>
       </div>
@@ -122,28 +124,28 @@
         <div class="dd-section">
           <p>LAPTOPs</p>
           <ul class='dd-ul'>
-            <a href=""><li>Apple Laptops</li></a>
-            <a href=""><li>Dell laptops</li></a>
-            <a href=""><li>Tablets</li></a>
-            <a href=""><li>Other</li></a>
+            <a href="{% url 'products' %}?category=apple_macbooks">Apple Laptops</a>
+            <a href="{% url 'products' %}?category=lenovo_laptops">Lenovo Laptops</a>
+            <a href="{% url 'products' %}?category=tablets">Tablets</a>
+            <a href="{% url 'products' %}?category=apple_macbooks,lenovo_laptops,tablets">All Laptops</a>
           </ul>
         </div>
         <div class="dd-section">
           <p>PCs</p>
           <ul class='dd-ul'>
-            <a href=""><li>Apple iMacs</li></a>
-            <a href=""><li>Dell home computers</li></a>
-            <a href=""><li>Custom PC builds</li></a>
-            <a href=""><li>Other</li></a>
+            <a href="{% url 'products' %}?category=apple_macs">Apple Macs</a>
+            <a href="{% url 'products' %}?category=dell_home_computers">Dell Home Computers</a>
+            <a href="{% url 'products' %}?category=gaming_pcs">Gaming PCs</a>
+            <a href="{% url 'products' %}?category=apple_macs,dell_home_computers,gaming_pcs">All PCs</a>
           </ul>
         </div>
         <div class="dd-section">
           <p>ACCESSORIES</p>
           <ul class='dd-ul'>
-            <a href=""><li>Headphones</li></a>
-            <a href=""><li>Keyboards</li></a>
-            <a href=""><li>Mice</li></a>
-            <a href=""><li>Other</li></a>
+            <a href="{% url 'products' %}?category=keyboards">Keyboards</a>
+            <a href="{% url 'products' %}?category=mice">Mice</a>
+            <a href="{% url 'products' %}?category=headphones">Headphones</a>
+            <a href="{% url 'products' %}?category=keyboards,mice,headphones">All Accessories</a>
           </ul>
         </div>
       </div>
