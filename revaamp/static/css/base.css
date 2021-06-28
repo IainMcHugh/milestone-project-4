@@ -367,6 +367,101 @@ footer {
     margin-bottom: 28px;
 }
 
+/* Cart page */
+
+.cart {
+    max-width: 100% !important;
+}
+
+.cart-title {
+    font-size: 24px;
+    margin-bottom: 24px;
+}
+
+.total-heading {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 8px;
+}
+
+.cart-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--PASTEL_PINK);
+    margin-bottom: 8px;
+    font-size: 12px;
+}
+
+.cart-item > img {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.12), 
+              0 2px 2px rgba(0,0,0,0.12), 
+              0 4px 4px rgba(0,0,0,0.12), 
+              0 8px 8px rgba(0,0,0,0.12),
+              0 16px 16px rgba(0,0,0,0.12);
+}
+
+.cart-info {
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 16px;
+}
+
+.cart-pricequantity {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-item-price {
+    color: var(--AFRICAN_VIOLET);
+}
+
+.cart-item-total {
+    color: var(--AFRICAN_VIOLET);
+}
+
+.cart-totals-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cart-totals-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.delivery {
+    color: var(--AFRICAN_VIOLET);
+    font-size: 14px;
+}
+
+.grand-total > p:first-child {
+    font-size: 18px;
+}
+
 /* Foundation layouts */
 
 .foundation-base {
@@ -748,6 +843,16 @@ footer {
 
     .why-buy-item-reverse {
         grid-template-columns: 1fr 48px;
+    }
+
+    /* Cart Page */
+
+    .cart-info {
+        flex-direction: row;
+    }
+
+    .cart-totals-wrapper {
+        width: 300px;
     }
 
     /* Foundations */

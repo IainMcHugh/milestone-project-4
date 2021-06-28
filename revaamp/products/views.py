@@ -65,8 +65,7 @@ def product_detail(request, product_id):
     """
 
     product = get_object_or_404(Product, pk=product_id)
-    # Update to be products only in same section
-    # related_products = Product.objects.all()
+
     related_products = Product.objects.filter(category=product.category).exclude(
         sku=product.sku
     )

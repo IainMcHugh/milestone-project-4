@@ -3,13 +3,71 @@
 
 {% block content %}
     <section class="cart">
-        <h1>Cart</h1>
-        {% if cart_items %}
-        <div class='cart-wrapper'>
-            {{ cart_items }}
+        <div class="foundation-base">
+            <div class="foundation-wrapper">
+                <h1 class='cart-title'>Shopping Cart</h1>
+                {% if cart_items %}
+                <div class='total-heading'>TOTAL</div>
+                <div class='cart-wrapper'>
+                    {% for item in cart_items %}
+                    <div class="cart-item">
+                        <img src="{{ item.product.image_url }}" alt="cart item">
+                        <div class="cart-info">
+                            <h4>{{ item.product.name|truncatechars:30 }}</h4>
+                            <div class="cart-pricequantity">
+                                <p class='cart-item-price'>${{ item.product.price }}</p>
+                                <p>Qty: {{ item.quantity }}</p>
+                            </div>
+                        </div>
+                        <p class='cart-item-total'>${{ item.product.price }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="cart-totals-wrapper">
+                    <div class='cart-totals-item cart-total'>
+                        <p>Cart total</p>
+                        <p>${{ total|floatformat:2}}</p>
+                    </div>
+                    <div class='cart-totals-item delivery'>
+                        <p>Delivery</p>
+                        <p>${{ delivery|floatformat:2}}</p>
+                    </div>
+                    <div class='cart-totals-item grand-total'>
+                        <p>Grand total</p>
+                        <p>${{ grand_total|floatformat:2}}</p>
+                    </div>
+                </div>
+                <div class="sticky-buttons-wrapper">
+                    <button href="{% url 'products' %}" class='secondary-btn sm'>Go back</button>
+                    <button href="{% url 'products' %}" class='primary-btn sm'>Payment</button>
+                </div>
+                {% else %}
+                <p>Your cart is empty!</p>
+                {% endif %}
+            </div>
+            {% if related_products_cart %}
+            <div class="foundation-wrapper">
+                <h4 class='related-products-title'>You may also like</h4>
+                <div class='products-wrapper'>
+                {% for related_product in related_products_cart|slice:":4" %}
+                    <a class='fake-anchor' href="{% url 'product_detail' related_product.id %}">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="{{ related_product.image_url}}"/>
+                        </div>
+                        <div class="card-data">
+                            <p class="products-name">{{ related_product.name|truncatechars:30 }}</p>
+                            <p class="products-category">in {{ related_product.category.friendly_name }}</p>
+                            <div class="products-pricerating">
+                                <p class="products-price">€{{ related_product.price|floatformat:"2g" }}</p>
+                                <p class="products-rating">{{ related_product.rating }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    </a>
+                {% endfor %}
+            </div>
+            {% endif %}
         </div>
-        {% else %}
-        <p>Your cart is empty!</p>
-        {% endif %}
     </section>
 {% endblock %}
