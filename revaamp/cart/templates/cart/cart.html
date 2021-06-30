@@ -12,14 +12,21 @@
                     {% for item in cart_items %}
                     <div class="cart-item">
                         <img src="{{ item.product.image_url }}" alt="cart item">
-                        <div class="cart-info">
-                            <h4>{{ item.product.name|truncatechars:30 }}</h4>
-                            <div class="cart-pricequantity">
-                                <p class='cart-item-price'>${{ item.product.price }}</p>
-                                <p>Qty: {{ item.quantity }}</p>
+                        <div class="cart-info-outer">
+                            <div class="cart-info">
+                                <h4>{{ item.product.name|truncatechars:30 }}</h4>
+                                <div class="cart-pricequantity">
+                                    <p class='cart-item-price'>${{ item.product.price }}</p>
+                                    <p>
+                                        <button data-item-id='{{ item.id }}' id='decrement-qty-{{ item.id }}'>-</button> 
+                                        {{ item.quantity }} 
+                                        <button data-item-id='{{ item.id }}' id='increment-qty-{{ item.id }}'>+</button> 
+                                    </p>
+                                </div>
                             </div>
                         </div>
                         <p class='cart-item-total'>${{ item.product.price }}</p>
+                        <button class="cart-item-remove">X</button>
                     </div>
                     {% endfor %}
                 </div>
@@ -35,6 +42,10 @@
                     <div class='cart-totals-item grand-total'>
                         <p>Grand total</p>
                         <p>${{ grand_total|floatformat:2}}</p>
+                    </div>
+                    <div class="cart-buttons">
+                        <button href="{% url 'products' %}" class='secondary-btn lg'>Go back</button>
+                        <button href="{% url 'products' %}" class='primary-btn lg'>Payment</button>
                     </div>
                 </div>
                 <div class="sticky-buttons-wrapper">
@@ -70,4 +81,9 @@
             {% endif %}
         </div>
     </section>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{% include 'products/includes/quantity_input_script.html' %}
 {% endblock %}

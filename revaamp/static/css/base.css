@@ -392,6 +392,7 @@ footer {
 }
 
 .cart-item {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -414,9 +415,14 @@ footer {
               0 16px 16px rgba(0,0,0,0.12);
 }
 
-.cart-info {
+.cart-info-outer {
     height: 80%;
     width: 100%;
+}
+
+.cart-info {
+    height: 100%;
+    max-width: 300px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -433,6 +439,31 @@ footer {
 
 .cart-item-price {
     color: var(--AFRICAN_VIOLET);
+}
+
+.cart-pricequantity button {
+    font-weight: 700;
+    background-color: var(--AFRICAN_VIOLET);
+    color: var(--WHITE);
+    padding: 2px 4px;
+    border-radius: 2px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.cart-item-remove {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-weight: 700;
+    background-color: var(--AFRICAN_VIOLET);
+    color: var(--WHITE);
+    padding: 2px 4px;
+    border-radius: 2px;
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
 
 .cart-item-total {
@@ -460,6 +491,10 @@ footer {
 
 .grand-total > p:first-child {
     font-size: 18px;
+}
+
+.cart-buttons {
+    display: none;
 }
 
 /* Foundation layouts */
@@ -848,11 +883,42 @@ footer {
     /* Cart Page */
 
     .cart-info {
-        flex-direction: row;
+        max-width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .cart-pricequantity {
+        justify-content: space-evenly;
+    }
+
+    .cart-pricequantity button {
+        font-size: 18px;
+        padding: 4px;
     }
 
     .cart-totals-wrapper {
-        width: 300px;
+        width: 400px;
+        margin: 0 0 0 auto;
+    }
+
+    .cart-totals-item {
+        font-size: 18px;
+    }
+
+    .grand-total {
+        font-size: 24px;
+    }
+
+    .cart-buttons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cart-buttons > button:first-child {
+        margin-bottom: 8px;
     }
 
     /* Foundations */
@@ -890,6 +956,10 @@ footer {
 
     .mb16-md {
         margin-bottom: 16px;
+    }
+
+    .grow {
+        height: 48px;
     }
 }
 
