@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load bag_tools %}
 
 {% block content %}
     <section class="cart">
@@ -28,7 +29,7 @@
                                 </div>
                             </div>
                         </div>
-                        <p class='cart-item-total'>${{ item.product.price }}</p>
+                        <p class='cart-item-total'>${{ item.product.price | calc_subtotal:item.quantity }}</p>
                         <button type='button' class="remove-item cart-item-remove" id="remove_{{ item.product.id }}">X</button>
                     </form>
                     <a class="hidden-update-item"></a>
