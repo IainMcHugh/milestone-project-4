@@ -452,6 +452,13 @@ footer {
     cursor: pointer;
 }
 
+.cart-quantity-container > input {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    width: 17px;
+}
+
 .cart-item-remove {
     position: absolute;
     top: 0;
@@ -468,6 +475,14 @@ footer {
 
 .cart-item-total {
     color: var(--AFRICAN_VIOLET);
+}
+
+.hidden-update-item {
+    display: hidden;
+}
+
+.hidden-remove-item {
+    display: hidden;
 }
 
 .cart-totals-wrapper {
@@ -897,6 +912,10 @@ footer {
     .cart-pricequantity button {
         font-size: 18px;
         padding: 4px;
+    }
+
+    .cart-quantity-container > input {
+        width: 25px;
     }
 
     .cart-totals-wrapper {
