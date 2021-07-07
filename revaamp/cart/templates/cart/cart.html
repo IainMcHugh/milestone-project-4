@@ -51,12 +51,12 @@
                     </div>
                     <div class="cart-buttons">
                         <button href="{% url 'products' %}" class='secondary-btn lg'>Go back</button>
-                        <button href="{% url 'products' %}" class='primary-btn lg'>Payment</button>
+                        <a href="{% url 'checkout' %}" class='primary-btn lg'>Checkout</a>
                     </div>
                 </div>
                 <div class="sticky-buttons-wrapper">
                     <button href="{% url 'products' %}" class='secondary-btn sm'>Go back</button>
-                    <button href="{% url 'products' %}" class='primary-btn sm'>Payment</button>
+                    <a href="{% url 'checkout' %}" class='primary-btn sm'>Checkout</a>
                 </div>
                 {% else %}
                 <p>Your cart is empty!</p>
