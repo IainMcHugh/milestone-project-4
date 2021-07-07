@@ -10,15 +10,15 @@ from products.models import Product
 
 
 class Order(models.Model):
-    order_name = models.CharField(max_length=32, null=False, editable=False)
+    order_number = models.CharField(max_length=32, null=False, editable=False)
     full_name = models.CharField(max_length=64, null=False, blank=False)
     email = models.EmailField(max_length=256, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
     country = models.CharField(max_length=32, null=False, blank=False)
     postcode = models.CharField(max_length=18, null=False, blank=True)
     town_or_city = models.CharField(max_length=32, null=False, blank=False)
-    street_addresss1 = models.CharField(max_length=80, null=False, blank=False)
-    street_addresss2 = models.CharField(max_length=80, null=False, blank=True)
+    street_address1 = models.CharField(max_length=80, null=False, blank=False)
+    street_address2 = models.CharField(max_length=80, null=False, blank=True)
     county = models.CharField(max_length=80, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
     delivery_cost = models.DecimalField(
@@ -28,7 +28,7 @@ class Order(models.Model):
     grand_total = models.DecimalField(
         max_digits=10, decimal_places=2, null=False, default=0)
 
-    def gen_order_number(self):
+    def _gen_order_number(self):
         """
         Generate a random unique order number using UUID
         """
@@ -55,7 +55,7 @@ class Order(models.Model):
         if it hasn't been set already
         """
         if not self.order_number:
-            self.order_number = self.gen_order_number()
+            self.order_number = self._gen_order_number()
         super.save(*args, **kwargs)
 
     def __str__(self):
