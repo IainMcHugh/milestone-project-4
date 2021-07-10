@@ -11,6 +11,57 @@
             <div class="foundation-wrapper">
                 <h1 class='cart-title'>Thank you</h1>
                 <p class='text-black'>Your order information is below. A confirmation email will be sent to <strong>{{ order.email }}</strong>.</p>
+                <div>
+                    <p>Order Info:</p>
+                    <div>
+                        <p>Order Number: {{ order.order_number }}</p>
+                        <p>Order Date: {{ order.date }}</p>
+                    </div>
+                </div>
+                <div>
+                    <p>Order Details:</p>
+                    <div>
+                        {% for item in order.lineitems.all %}
+                            <p>{{ item.product_name }}</p>
+                            <p>{{ item.quantity}} @ ${{ item.product.price }} each</p>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div>
+                    <p>Delivering To:</p>
+                    <div>
+                        <p>Full Name: {{ order.full_name }}</p>
+                        <p>Street Address 1: {{ order.street_address1 }}</p>
+                        
+                        {% if order.street_address2 %}
+                            <p>Street Address 2: {{ order.street_address2 }}</p>
+                        {% endif %}
+                        
+                        <p>Order Number: {{ order.order_number }}</p>
+                        
+                        {% if order.county %}
+                            <p>County: {{ order.county }}</p>
+                        {% endif %}
+                        
+                        <p>Town or City: {{ order.town_or_city }}</p>
+                        
+                        {% if order.postcode %}
+                            <p>Postal Code: {{ order.postcode }}</p>
+                        {% endif %}
+                        
+                        <p>Country: {{ order.country }}</p>
+                        <p>Phone Number: {{ order.phone_number }}</p>
+                    </div>
+                </div>
+                <div>
+                    <p>Billing Info:</p>
+                    <div>
+                        <p>Order Total: {{ order.order_total }}</p>
+                        <p>Delivery: {{ order.delivery_cost }}</p>
+                        <p>Grand Total: {{ order.grand_total }}</p>
+                    </div>
+                </div>
                 <p>TODO: ADD YOU MAY ALSO LIKE SECTION HERE!!</p>
             </div>
         </div>
