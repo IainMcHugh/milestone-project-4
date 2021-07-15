@@ -62,7 +62,11 @@
                         <p>Grand Total: {{ order.grand_total }}</p>
                     </div>
                 </div>
-                <p>TODO: ADD YOU MAY ALSO LIKE SECTION HERE!!</p>
+                {% if from_profile %}
+                    <a href="{% url 'profile' %}">Back to Profile</a>
+                {% else %}
+                    <p>TODO: ADD YOU MAY ALSO LIKE SECTION HERE!!</p>
+                {% endif %}
             </div>
         </div>
     </section>
