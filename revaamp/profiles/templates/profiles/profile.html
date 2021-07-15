@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="cart">
+        <div class="foundation-base">
+            <div class="foundation-wrapper">
+                <h1 class='cart-title'>My Profile</h1>
+            </div>
+        </div>
+    </section>
+{% endblock %}
