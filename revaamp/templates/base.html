@@ -124,7 +124,9 @@
     </div>
     <div class=header-dropdown>
       <div class='dd-auth'>
-        <p>Login / Signup</p>
+        <p><a href="{% url 'account_login' %}">Login</a> / <a href="{% url 'account_signup' %}">Signup</a></p>
+        <p><a href="{% url 'account_logout' %}">Logout</a></p>
+        <p><a href="{% url 'profile' %}">My Profile</a></p>
       </div>
       <div class='dd-sections'>
         <div class="dd-section">
