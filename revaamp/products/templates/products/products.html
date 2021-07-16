@@ -37,20 +37,26 @@
                 <div class='products-wrapper'>
                     {% for product in products %}
                     <a class='fake-anchor' href="{% url 'product_detail' product.id %}">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="{{ product.image_url}}"/>
-                        </div>
-                        <div class="card-data">
-                            <p class="products-name">{{ product.name|truncatechars:30 }}</p>
-                            <p class="products-category">in {{ product.category.friendly_name }}</p>
-                            <div class="products-pricerating">
-                                <p class="products-price">€{{ product.price|floatformat:"2g" }}</p>
-                                <p class="products-rating">{{ product.rating }}</p>
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="{{ product.image_url}}"/>
+                            </div>
+                            <div class="card-data">
+                                <p class="products-name">{{ product.name|truncatechars:30 }}</p>
+                                <p class="products-category">in {{ product.category.friendly_name }}</p>
+                                <div class="products-pricerating">
+                                    <p class="products-price">€{{ product.price|floatformat:"2g" }}</p>
+                                    <p class="products-rating">{{ product.rating }}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
+                        {% if request.user.is_superuser %}
+                            <small class='ml-3'>
+                                <a href="{% url 'edit_product' product.id %}">Edit</a>
+                                <a class='text-danger' href="{% url 'delete_product' product.id %}">Delete</a>
+                            </small>
+                        {% endif %}
+                    </a>
                     {% endfor %}
                 </div>
             </div>
