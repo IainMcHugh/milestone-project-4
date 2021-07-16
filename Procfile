@@ -1,1 +1,1 @@
-web: gunicorn revaamp.revaamp.wsgi:application
+web: gunicorn revaamp.wsgi:application
