@@ -24,6 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("SECRET_KEY", "")
+# SECRET_KEY = "django-insecure-n@(eh7j$+x)%f1hjde($(si_64ldod+41^e)svy+gbzfj*rhei"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = "DEVELOPMENT" in os.environ
@@ -170,6 +171,12 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
 if "USE_AWS" in os.environ:
+    # Cache control
+    AWS_S3_OBJECT_PARAMETERS = {
+        "Expires": "Thu, 31 Dec 2099 20:00:00 GMT",
+        "CacheControl": "max-age=94608000",
+    }
+
     # Bucket config
     AWS_STORAGE_BUCKET_NAME = "revaamp"
     AWS_S3_REGION_NAME = "eu-west-1"
