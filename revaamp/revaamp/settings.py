@@ -27,8 +27,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "")
 # SECRET_KEY = "django-insecure-n@(eh7j$+x)%f1hjde($(si_64ldod+41^e)svy+gbzfj*rhei"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = "DEVELOPMENT" in os.environ
-DEBUG = True
+DEBUG = "DEVELOPMENT" in os.environ
 
 ALLOWED_HOSTS = ["revaamp.herokuapp.com", "localhost"]
 
@@ -216,4 +215,4 @@ else:
     EMAIL_HOST = "smtp.gmail.com"
     EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
     EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
-    DFAULT_FROM_EMAIL = os.environ.get("EMAIL_HOST_USER")
+    DEFAULT_FROM_EMAIL = os.environ.get("EMAIL_HOST_USER")
