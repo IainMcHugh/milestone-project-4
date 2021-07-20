@@ -26,7 +26,7 @@
                             <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>Category (Z-A)</option>
                     </select>
                 </div>
-                <div class="">
+                <div class="products-home">
                     <p class="">
                         {% if search_term or current_categories or current_sorting != 'None_None' %}
                             <span class=""><a href="{% url 'products' %}">Products Home</a> | </span>
@@ -50,12 +50,6 @@
                                 </div>
                             </div>
                         </div>
-                        {% if request.user.is_superuser %}
-                            <small class='ml-3'>
-                                <a href="{% url 'edit_product' product.id %}">Edit</a>
-                                <a class='text-danger' href="{% url 'delete_product' product.id %}">Delete</a>
-                            </small>
-                        {% endif %}
                     </a>
                     {% endfor %}
                 </div>

@@ -29,14 +29,14 @@
                             <div class="cart-info">
                                 <h4>{{ item.product.name|truncatechars:30 }}</h4>
                                 <div class="cart-pricequantity">
-                                    <p class='cart-item-price'>${{ item.product.price }}</p>
+                                    <p class='cart-item-price'>€{{ item.product.price }}</p>
                                     <div class="cart-quantity-container">
                                         <p>{{ item.quantity }}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <p class='cart-item-total'>${{ item.product.price | calc_subtotal:item.quantity }}</p>
+                        <p class='cart-item-total'>€{{ item.product.price | calc_subtotal:item.quantity }}</p>
                     </div>
                 {% endfor %}
                 <hr class="my-0">
@@ -108,7 +108,7 @@
                                 <span class='icon'>
                                     <i class="fas fa-exclamation-circle"></i>
                                 </span>
-                                <span>Your card will be charged <strong>${{ grand_total|floatformat:2 }}</strong></span>
+                                <span>Your card will be charged <strong>€{{ grand_total|floatformat:2 }}</strong></span>
                             </p>
                         </div>
                     </form>

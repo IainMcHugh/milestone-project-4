@@ -18,7 +18,7 @@
                             <div class="cart-info">
                                 <h4>{{ item.product.name|truncatechars:30 }}</h4>
                                 <div class="cart-pricequantity">
-                                    <p class='cart-item-price'>${{ item.product.price }}</p>
+                                    <p class='cart-item-price'>€{{ item.product.price }}</p>
                                     <div class="cart-quantity-container">
                                         <button type='button' data-item-id='{{ item.product.id }}' class='decrement-qty' id='decrement-qty-{{ item.product.id }}'>-</button> 
                                         <!-- <p>{{ item.quantity }}</p> -->
@@ -29,7 +29,7 @@
                                 </div>
                             </div>
                         </div>
-                        <p class='cart-item-total'>${{ item.product.price | calc_subtotal:item.quantity }}</p>
+                        <p class='cart-item-total'>€{{ item.product.price | calc_subtotal:item.quantity }}</p>
                         <button type='button' class="remove-item cart-item-remove" id="remove_{{ item.product.id }}">X</button>
                     </form>
                     <a class="hidden-update-item"></a>
@@ -39,52 +39,29 @@
                 <div class="cart-totals-wrapper">
                     <div class='cart-totals-item cart-total'>
                         <p>Cart total</p>
-                        <p>${{ total|floatformat:2}}</p>
+                        <p>€{{ total|floatformat:2}}</p>
                     </div>
                     <div class='cart-totals-item delivery'>
                         <p>Delivery</p>
-                        <p>${{ delivery|floatformat:2}}</p>
+                        <p>€{{ delivery|floatformat:2}}</p>
                     </div>
                     <div class='cart-totals-item grand-total'>
                         <p>Grand total</p>
-                        <p>${{ grand_total|floatformat:2}}</p>
+                        <p>€{{ grand_total|floatformat:2}}</p>
                     </div>
                     <div class="cart-buttons">
-                        <button href="{% url 'products' %}" class='secondary-btn lg'>Go back</button>
+                        <a href="{% url 'products' %}" class='secondary-btn lg mb8 mb16-lg'>Keep Shopping</a>
                         <a href="{% url 'checkout' %}" class='primary-btn lg'>Checkout</a>
                     </div>
                 </div>
                 <div class="sticky-buttons-wrapper">
-                    <button href="{% url 'products' %}" class='secondary-btn sm'>Go back</button>
+                    <a href="{% url 'products' %}" class='secondary-btn sm'>Keep Shopping</a>
                     <a href="{% url 'checkout' %}" class='primary-btn sm'>Checkout</a>
                 </div>
                 {% else %}
                 <p>Your cart is empty!</p>
                 {% endif %}
             </div>
-            {% if related_products_cart %}
-            <div class="foundation-wrapper">
-                <h4 class='related-products-title'>You may also like</h4>
-                <div class='products-wrapper'>
-                {% for related_product in related_products_cart|slice:":4" %}
-                    <a class='fake-anchor' href="{% url 'product_detail' related_product.id %}">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="{{ related_product.image_url}}"/>
-                        </div>
-                        <div class="card-data">
-                            <p class="products-name">{{ related_product.name|truncatechars:30 }}</p>
-                            <p class="products-category">in {{ related_product.category.friendly_name }}</p>
-                            <div class="products-pricerating">
-                                <p class="products-price">€{{ related_product.price|floatformat:"2g" }}</p>
-                                <p class="products-rating">{{ related_product.rating }}</p>
-                            </div>
-                        </div>
-                    </div>
-                    </a>
-                {% endfor %}
-            </div>
-            {% endif %}
         </div>
     </section>
 {% endblock %}

@@ -42,8 +42,8 @@
   </head>
   <body>
     <header>
-        <a href="{% url 'home' %}">
-          <h2 class='site_logo'>REVAAMP</h2>
+        <a class='site_logo' href="{% url 'home' %}">
+          <h2>REVAAMP</h2>
         </a>
 
         <div class="header-search">
@@ -67,20 +67,37 @@
         </div>
         
         <button class='fake-btn toggle-dropdown'><i class="fas fa-bars fa-2x"></i></button>
+        {% if request.user.is_authenticated %}
         <div class="header-icons-container">
-          <button class="icon-wrapper">
+          <a href="{% url 'profile' %}" class="icon-wrapper">
             <i class="fas fa-user-circle fa-2x"></i>
             <p>Account</p>
-          </button>
+          </a>
           <a href="{% url 'view_cart' %}" class="icon-wrapper">
             <i class="fas fa-shopping-cart fa-2x"></i>
             {% if grand_total %}
-              <p>${{ grand_total|floatformat:2 }}</p>
+              <p>€{{ grand_total|floatformat:2 }}</p>
             {% else %}
-              <p>$0.00</p>
+              <p>€0.00</p>
             {% endif %}
           </a>
+          <a href="{% url 'account_logout' %}" class="icon-wrapper">
+            <i class="fas fa-sign-out-alt fa-2x"></i>
+            <p>Logout</p>
+          </a>
         </div>
+        {% else %}
+        <div class="header-icons-container">
+          <a href="{% url 'profile' %}" class="icon-wrapper">
+            <i class="fas fa-user-circle fa-2x"></i>
+            <p>Login</p>
+          </a>
+          <a href="{% url 'view_cart' %}" class="icon-wrapper">
+            <i class="fas fa-shopping-cart fa-2x"></i>
+            <p>Signup</p>
+          </a>
+        </div>
+        {% endif %}
     </header>
     <div class="header-nav">
       <div class="nav-items-primary">
@@ -122,11 +139,15 @@
         </div>
       </div>
     </div>
+    <!-- Mobile Header dropdown -->
     <div class=header-dropdown>
       <div class='dd-auth'>
-        <p><a href="{% url 'account_login' %}">Login</a> / <a href="{% url 'account_signup' %}">Signup</a></p>
+        {% if request.user.is_authenticated %}
+        <p><a href="{% url 'profile' %}">My Profile</a> / <a href="{% url 'view_cart' %}">My Cart</a></p>
         <p><a href="{% url 'account_logout' %}">Logout</a></p>
-        <p><a href="{% url 'profile' %}">My Profile</a></p>
+        {% else %}
+        <p><a href="{% url 'account_login' %}">Login</a> / <a href="{% url 'account_signup' %}">Signup</a></p>
+        {% endif %}
       </div>
       <div class='dd-sections'>
         <div class="dd-section">
@@ -159,40 +180,40 @@
       </div>
     </div>
     <div class="header-offset">
-      <div class="delivery-banner">Free delivery on orders over ${{ free_delivery_threshold }}</div>
-    {% if messages %}
-    <div class="message-container">
-      {% for message in messages %}
-        {% with message.level as level %}
-          {% if level == 40 %}
-            {% include 'includes/toasts/toast_error.html' %}
-          {% elif level == 30 %}
-            {% include 'includes/toasts/toast_warning.html' %}
-          {% elif level == 25 %}
-            {% include 'includes/toasts/toast_success.html' %}
-          {% else %}
-            {% include 'includes/toasts/toast_info.html' %}
-          {% endif %}
-        {% endwith %}
-      {% endfor %}
-    </div>
-    {% endif %}
-    
-    {% block page_header %}
-    {% endblock %}
+      <div class="delivery-banner">Free delivery on orders over €{{ free_delivery_threshold }}</div>
+      {% if messages %}
+      <div class="message-container">
+        {% for message in messages %}
+          {% with message.level as level %}
+            {% if level == 40 %}
+              {% include 'includes/toasts/toast_error.html' %}
+            {% elif level == 30 %}
+              {% include 'includes/toasts/toast_warning.html' %}
+            {% elif level == 25 %}
+              {% include 'includes/toasts/toast_success.html' %}
+            {% else %}
+              {% include 'includes/toasts/toast_info.html' %}
+            {% endif %}
+          {% endwith %}
+        {% endfor %}
+      </div>
+      {% endif %}
+      
+      {% block page_header %}
+      {% endblock %}
 
-    {% block content %}
-    {% endblock %}
-    
-    {% block postloadjs %}
-    <script>
-      $('.toast').toast('show');
-    </script>
-    {% endblock %}
-    
-    <footer>
-      This is the footer
-    </footer>
-  </div>
+      {% block content %}
+      {% endblock %}
+      
+      {% block postloadjs %}
+      <script>
+        $('.toast').toast('show');
+      </script>
+      {% endblock %}
+      
+      <footer>
+        This is the footer
+      </footer>
+    </div>
   </body>
 </html>

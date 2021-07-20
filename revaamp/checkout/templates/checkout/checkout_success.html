@@ -23,7 +23,7 @@
                     <div>
                         {% for item in order.lineitems.all %}
                             <p>{{ item.product_name }}</p>
-                            <p>{{ item.quantity}} @ ${{ item.product.price }} each</p>
+                            <p>{{ item.quantity}} @ €{{ item.product.price }} each</p>
                         {% endfor %}
                     </div>
                 </div>

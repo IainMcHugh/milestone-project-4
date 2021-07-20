@@ -30,12 +30,19 @@ header {
 }
 
 .header-offset {
-    margin-top: 144px;
+    margin-top: 100px;
 }
 
 .site_logo {
     font-size: 24px;
     color: var(--PURPLE_PLUM);
+    text-decoration: none;
+}
+
+.site_logo:hover {
+    font-size: 24px;
+    color: var(--PURPLE_PLUM);
+    text-decoration: none;
 }
 
 .header-search {
@@ -58,7 +65,7 @@ header {
     right: 0;
     border-radius: 0 0 24px 24px;
     background-color: var(--OFFWHITE);
-    height: 60vh;
+    height: 80vh;
     animation: headerDropdown 800ms ease-in-out forwards;
     z-index: 9000;
     padding: 24px;
@@ -78,6 +85,10 @@ header {
     margin-bottom: 18px;
 }
 
+.dd-auth > p {
+    margin-bottom: 12px;
+}
+
 .dd-section {
     margin-bottom: 24px;
 }
@@ -90,10 +101,13 @@ header {
 
 .dd-ul {
     margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
 }
 
 .dd-ul > a {
     text-decoration: none;
+    color: var(--OFFBLACK);
     font-size: 14px;
     line-height: 18px;
 }
@@ -131,7 +145,8 @@ footer {
 .search-form {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
 }
 
 .search-form > label {
@@ -141,14 +156,14 @@ footer {
  }
 
 .input-container {
-    position: relative;
+    width: 100%;
+    max-width: 700px;
 }
 
 .search-container {
     position: relative;
     height: 48px;
     display: flex;
-    max-width: 700px;
 }
 
 .search-container > input {
@@ -255,6 +270,14 @@ footer {
     margin-bottom: 28px;
 }
 
+.sorting-wrapper {
+    margin-bottom: 16px;
+}
+
+.products-home {
+    margin-bottom: 8px;
+}
+
 .products-wrapper {
     display: grid;
     grid-template-columns: 1fr;
@@ -287,6 +310,10 @@ footer {
 }
 
 /* Product Detail page */
+
+.product-detail {
+    min-height: 100px !important;
+}
 
 .product-title {
     font-size: 24px;
@@ -330,9 +357,15 @@ footer {
     display: none;
 }
 
-.why-buy-banner {
-    padding: 16px 8px;
+.why-buy-wrapper {
     background: linear-gradient(to bottom right, var(--PURPLE_PLUM), var(--PURPLE));
+}
+
+.why-buy-wrapper > div {
+    background-color: transparent !important;
+}
+
+.why-buy-banner {
     margin-bottom: 28px;
 }
 
@@ -578,6 +611,7 @@ footer {
     background-color: var(--WHITE);
     margin: 0 auto;
     padding: 24px 8px;
+    min-height: 80vh;
 }
 
 .foundation-fw {
@@ -588,6 +622,9 @@ footer {
 /* Dumb elements */
 
 .primary-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     outline: 0;
     border: 0;
@@ -605,6 +642,9 @@ footer {
 }
 
 .secondary-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     outline: 0;
     border: 0;
@@ -623,9 +663,16 @@ footer {
 }
 
 .primary-btn:hover,
-.primary-btn:active,
+.primary-btn:active {
+    text-decoration: none;
+    color: var(--WHITE);
+    opacity: 0.9;
+}
+
 .secondary-btn:hover,
 .secondary-btn:active {
+    text-decoration: none;
+    color: var(--AFRICAN_VIOLET);
     opacity: 0.9;
 }
 
@@ -666,7 +713,7 @@ footer {
 }
 
 .fake-anchor {
-    text-decoration: none;
+    text-decoration: none !important;
     color: var(--OFFBLACK);
 }
 
@@ -719,6 +766,7 @@ footer {
               0 -2px 2px rgba(0,0,0,0.06), 
               0 -4px 4px rgba(0,0,0,0.06);
     transition: transform 200ms ease-in-out;
+    z-index: 9999;
 }
 
 .tags {
@@ -765,6 +813,10 @@ footer {
     color: var(--PURPLE_PLUM);
 }
 
+.fa-sign-out-alt {
+    color: var(--PURPLE_PLUM);
+}
+
 /* Animations */
 
 @keyframes headerDropdown {
@@ -798,9 +850,16 @@ footer {
     }
 
     .header-icons-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        column-gap: 32px;
+        display: flex;
+        align-items: center;
+    }
+
+    .header-icons-container > a {
+        margin-right: 32px;
+    }
+
+    .header-icons-container > a:last-child {
+        margin-right: 0;
     }
 
     .icon-wrapper {
@@ -813,6 +872,8 @@ footer {
         border-radius: 12px;
         padding: 4px;
         transition: background-color 200ms ease-in-out;
+        color: var(--OFFBLACK);
+        text-decoration: none !important;
     }
 
     .icon-wrapper:hover {
@@ -826,7 +887,8 @@ footer {
     .header-nav {
         display: block;
         background-color: var(--AFRICAN_VIOLET);
-        padding: 8px 24px;
+        padding: 10px 24px;
+        height: 44px;
         z-index: 9900;
         position: fixed;
         top: 100px;
@@ -840,7 +902,7 @@ footer {
     }
 
     .nav-items-wrapper > p {
-        font-size: 28px;
+        font-size: 24px;
         color: var(--WHITE);
         margin-right: 48px;
         cursor: pointer;
@@ -851,14 +913,15 @@ footer {
     }
 
     .nav-items-wrapper:hover > .nav-items-secondary {
-        display: block;
         position: absolute;
+        display: flex;
+        flex-direction: column;
     }
 
     .nav-items-secondary {
         background-color: var(--AFRICAN_VIOLET);
-        padding: 24px 8px 8px;
-        width: 150px;
+        padding: 24px 8px 8px 12px;
+        width: 250px;
         border-radius: 0 0 8px 8px;
         box-shadow: 0 1px 1px rgba(0,0,0,0.12), 
               0 2px 2px rgba(0,0,0,0.12), 
@@ -867,16 +930,37 @@ footer {
               0 16px 16px rgba(0,0,0,0.12);
     }
 
-    .nav-items-secondary > p {
+    .nav-items-secondary > a {
         color: white;
-        margin-bottom: 16px;
+        margin-bottom: 12px;
         font-size: 18px;
+    }
+
+    .header-offset {
+        margin-top: 144px;
     }
 
     .hero-wrapper {
         position: relative;
         width: 100%;
         height: 100%;
+    }
+
+    .home-hero-text {
+        position: absolute;
+        top: 48px;
+        left: initial;
+        width: 600px;
+        right: 0px;
+        font-size: 48px;
+        line-height: 1.8em;
+        color: var(--OFFWHITE);
+    }
+    
+    .home-hero-btn {
+        position: absolute;
+        top: 400px;
+        right: 100px;
     }
 
     /* Products page */
@@ -966,6 +1050,9 @@ footer {
         grid-template-columns: 1fr 48px;
     }
 
+    .mobile-super-user {
+        display: none;
+    }
     /* Cart Page */
 
     .cart-info {
