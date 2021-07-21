@@ -817,6 +817,10 @@ footer {
     color: var(--PURPLE_PLUM);
 }
 
+.fa-heart {
+    color: var(--PURPLE_PLUM);
+}
+
 /* Animations */
 
 @keyframes headerDropdown {

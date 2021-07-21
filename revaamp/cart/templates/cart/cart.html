@@ -21,7 +21,6 @@
                                     <p class='cart-item-price'>€{{ item.product.price }}</p>
                                     <div class="cart-quantity-container">
                                         <button type='button' data-item-id='{{ item.product.id }}' class='decrement-qty' id='decrement-qty-{{ item.product.id }}'>-</button> 
-                                        <!-- <p>{{ item.quantity }}</p> -->
                                         <input class="qty_input" type="number" name="quantity" value="{{ item.quantity }}"
                                         min="1" max="99" data-item_id="{{ item.product.id }}" id="id_qty_{{ item.product.id }}"/>
                                         <button type='button' data-item-id='{{ item.product.id }}' class='increment-qty' id='increment-qty-{{ item.product.id }}'>+</button> 

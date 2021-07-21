@@ -69,9 +69,9 @@
         <button class='fake-btn toggle-dropdown'><i class="fas fa-bars fa-2x"></i></button>
         {% if request.user.is_authenticated %}
         <div class="header-icons-container">
-          <a href="{% url 'profile' %}" class="icon-wrapper">
-            <i class="fas fa-user-circle fa-2x"></i>
-            <p>Account</p>
+          <a href="{% url 'view_saved' %}" class="icon-wrapper">
+            <i class="fas fa-heart fa-2x"></i>
+            <p>Wishlist</p>
           </a>
           <a href="{% url 'view_cart' %}" class="icon-wrapper">
             <i class="fas fa-shopping-cart fa-2x"></i>
@@ -80,6 +80,10 @@
             {% else %}
               <p>€0.00</p>
             {% endif %}
+          </a>
+          <a href="{% url 'profile' %}" class="icon-wrapper">
+            <i class="fas fa-user-circle fa-2x"></i>
+            <p>Account</p>
           </a>
           <a href="{% url 'account_logout' %}" class="icon-wrapper">
             <i class="fas fa-sign-out-alt fa-2x"></i>
@@ -93,7 +97,7 @@
             <p>Login</p>
           </a>
           <a href="{% url 'view_cart' %}" class="icon-wrapper">
-            <i class="fas fa-shopping-cart fa-2x"></i>
+            <i class="fas fa-user-circle fa-2x"></i>
             <p>Signup</p>
           </a>
         </div>

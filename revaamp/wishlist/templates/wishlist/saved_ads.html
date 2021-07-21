@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="cart">
+    <div class="foundation-base">
+        <div class="foundation-wrapper">
+            <h1 class='cart-title'>Wishlist</h1>
+            {% if saved_items %}
+            <div class='cart-wrapper'>
+                {% for item in saved_items %}
+                <div class="cart-item">
+                    {% csrf_token %}
+                    <img src="{{ item.product.image_url }}" alt="cart item">
+                    <div class="cart-info-outer">
+                        <div class="cart-info">
+                            <h4>{{ item.product.name|truncatechars:30 }}</h4>
+                            <div class="cart-pricequantity">
+                                <!-- <p class='cart-item-price'>€{{ item.product.price }}</p> -->
+                            </div>
+                        </div>
+                    </div>
+                    <p class='cart-item-total'>€{{ item.product.price }}</p>
+                    <button type='button' class="remove-item cart-item-remove" id="remove_{{ item.product.id }}">X</button>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="cart-totals-wrapper">
+                <div class="cart-buttons">
+                    <a href="{% url 'products' %}" class='secondary-btn lg mb8 mb16-lg'>Keep Shopping</a>
+                    <a href="{% url 'checkout' %}" class='primary-btn lg'>Checkout</a>
+                </div>
+            </div>
+            <div class="sticky-buttons-wrapper">
+                <a href="{% url 'products' %}" class='secondary-btn sm'>Keep Shopping</a>
+                <a href="{% url 'checkout' %}" class='primary-btn sm'>Checkout</a>
+            </div>
+            {% else %}
+            <p>Theres nothing in your wishlist!</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{% include 'products/includes/quantity_input_script.html' %}
+
+<script type="text/javascript">
+    // Remove item and reload on click
+    $('.remove-item').click(function(event) {
+        console.log('remove item')
+        const csrfToken = "{{ csrf_token }}";
+        const itemId = $(this).attr('id').split('remove_')[1];
+        const url = `/wishlist/remove/${itemId}`;
+        const data = {'csrfmiddlewaretoken': csrfToken};
+
+        $.post(url, data).done(function(){
+            location.reload()
+        });
+    });
+</script>
+{% endblock %}

@@ -23,12 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY", "")
-# SECRET_KEY = "django-insecure-n@(eh7j$+x)%f1hjde($(si_64ldod+41^e)svy+gbzfj*rhei"
+# SECRET_KEY = os.environ.get("SECRET_KEY", "")
+SECRET_KEY = "django-insecure-n@(eh7j$+x)%f1hjde($(si_64ldod+41^e)svy+gbzfj*rhei"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = "DEVELOPMENT" in os.environ
+DEBUG = True
+# DEBUG = "DEVELOPMENT" in os.environ
 
 
 ALLOWED_HOSTS = ["revaamp.herokuapp.com", "localhost"]
@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     "cart",
     "checkout",
     "profiles",
+    "wishlist",
     # Other
     "crispy_forms",
     "storages",
@@ -83,6 +84,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "cart.contexts.cart_contents",
+                "wishlist.contexts.saved_contents",
             ],
             "builtins": [
                 "crispy_forms.templatetags.crispy_forms_tags",
