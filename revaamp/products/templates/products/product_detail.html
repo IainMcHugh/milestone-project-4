@@ -72,30 +72,32 @@
                     </div>
                 </div>
             </div>
+            <div class="foundation-wrapper product-detail">
+                <a href="{% url 'view_comments' product.id %}" class="secondary-btn sm mb8 mb16-lg">Reviews</a>
+            </div>
             {% if related_products %}
-            <div class="related-products-wrapper foundation-wrapper product-detail">
-                <h4 class='related-products-title'>You may also like</h4>
-                <div class='products-wrapper'>
-                {% for related_product in related_products|slice:":4" %}
-                    <a class='fake-anchor' href="{% url 'product_detail' related_product.id %}">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="{{ related_product.image_url}}"/>
-                        </div>
-                        <div class="card-data">
-                            <p class="products-name">{{ related_product.name|truncatechars:30 }}</p>
-                            <p class="products-category">in {{ related_product.category.friendly_name }}</p>
-                            <div class="products-pricerating">
-                                <p class="products-price">€{{ related_product.price|floatformat:"2g" }}</p>
-                                <p class="products-rating">{{ related_product.rating }}</p>
+                <div class="related-products-wrapper foundation-wrapper product-detail">
+                    <h4 class='related-products-title'>You may also like</h4>
+                    <div class='products-wrapper'>
+                    {% for related_product in related_products|slice:":4" %}
+                        <a class='fake-anchor' href="{% url 'product_detail' related_product.id %}">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="{{ related_product.image_url}}"/>
+                            </div>
+                            <div class="card-data">
+                                <p class="products-name">{{ related_product.name|truncatechars:30 }}</p>
+                                <p class="products-category">in {{ related_product.category.friendly_name }}</p>
+                                <div class="products-pricerating">
+                                    <p class="products-price">€{{ related_product.price|floatformat:"2g" }}</p>
+                                    <p class="products-rating">{{ related_product.rating }}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    </a>
-                {% endfor %}
-            </div>
+                        </a>
+                    {% endfor %}
+                </div>
             {% endif %}
-            </div>
         </div>
     </section>
 {% endblock %}

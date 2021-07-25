@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load comment_tools %}
+
+{% block content %}
+<section class="cart">
+    <div class="foundation-base">
+        <div class="foundation-wrapper">
+            <h1 class='comments-title'>Comments</h1>
+            {% if comments %}
+                <div class='comments-wrapper'>
+                    {% for comment in comments %}
+                        <div class="comment">
+                            <div class="comment-header mb16">
+                                <div class="comment-stars">
+                                    <div class="star-container">
+                                        {% with ''|center:comment.rating as range %}
+                                        {% for _ in range %}
+                                        <div class="star"><i class="fas fa-star"></i></div>
+                                        {% endfor %}
+                                        {% endwith %}
+                                    </div>
+                                </div>
+                                <p class="comment-time">{{ comment.timestamp | format_date }}</p>
+                            </div>
+                            <p class="mb8">{{comment.user}}</p>
+                            <h4>{{comment.comment}}</h4>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p class="mb8">Theres no comments for this product yet.</p>
+            {% endif %}
+            <div class="add-comment">
+                {% if request.user.is_authenticated %}
+                <p class="mb8">Leave a comment</p>
+                <form action="{% url 'add_comment' product_id %}" method="post">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button type="submit" class="primary-btn">Add Comment</button>
+                </form>
+                {% else %}
+                <p class="mb8">You will need to be logged in to leave a comment.</p>
+                <a href="{% url 'account_login' %}" class="secondary-btn mb8">Login</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

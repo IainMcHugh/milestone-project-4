@@ -545,6 +545,56 @@ footer {
     display: none;
 }
 
+/* Comment page */
+
+.comments-title {
+    font-size: 24px;
+    margin-bottom: 24px;
+}
+
+.comments-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+
+.comment {
+    margin-bottom: 24px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--PURPLE_PLUM);
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comment-stars {
+    width: 100px;
+}
+
+.star-container {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    column-gap: 2px;
+}
+
+.comment > p {
+    font-size: 14px;
+    color: var(--PURPLE_PLUM);
+}
+
+.comment > h4 {
+    font-size: 16px;
+}
+
+.add-comment {
+    padding: 16px 8px;
+    border-radius: 8px;
+    border: 1px solid var(--OFFWHITE);
+}
+
 /* Allauth */
 
 /* Allauth form formatting */
@@ -1100,6 +1150,16 @@ footer {
 
     .cart-buttons > button:first-child {
         margin-bottom: 8px;
+    }
+
+    /* Comments page */
+
+    .comment {
+        padding-bottom: 16px;
+    }
+
+    .add-comment {
+        padding: 16px;
     }
 
     /* Foundations */
