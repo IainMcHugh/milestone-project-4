@@ -564,11 +564,11 @@ footer {
 }
 
 .hidden-update-item {
-    display: hidden;
+    visibility: hidden;
 }
 
 .hidden-remove-item {
-    display: hidden;
+    visibility: hidden;
 }
 
 .cart-totals-wrapper {
@@ -909,6 +909,10 @@ footer {
 }
 
 .fa-user-circle {
+    color: var(--PURPLE_PLUM);
+}
+
+.fa-user-plus {
     color: var(--PURPLE_PLUM);
 }
 
