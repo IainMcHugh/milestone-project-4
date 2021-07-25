@@ -3,7 +3,6 @@ from products.models import Product
 
 # Context processor
 def saved_contents(request):
-    print("Saved Contents Processor")
     saved_items = []
     product_count = 0
     related_products_wishlist = None
@@ -11,8 +10,6 @@ def saved_contents(request):
 
     for item_key, item_value in saved.items():
         product = get_object_or_404(Product, pk=item_value)
-        print(product)
-        print("***")
         product_count += product_count
         saved_items.append({"item_id": item_value, "product": product})
 

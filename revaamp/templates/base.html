@@ -47,20 +47,12 @@
         </a>
 
         <div class="header-search">
-          <form class='search-form' method="GET" action="{% url 'products' %}">
-            <!-- <label for="search">Search Revaamp</label> -->
+          <form class='search-form' method="GET" action="{% url 'products' %}">            
             <div class="input-container">
                 <div class='search-container'>
                     <input type="text" name='search' id='search' placeholder="Search laptops" autocomplete="off">
                     <button type='submit'><i class="fas fa-search fa-lg"></i></button>
                 </div>
-                <!-- <div class="search-suggestions">
-                    <ul class='search-items'>
-                        <li>Item 1</li>
-                        <li>Item 2</li>
-                        <li>Item 3</li>
-                    </ul>
-                </div> -->
             </div>
         </form>
   
@@ -70,7 +62,7 @@
         {% if request.user.is_authenticated %}
         <div class="header-icons-container">
           <a href="{% url 'view_saved' %}" class="icon-wrapper">
-            <i class="fas fa-heart fa-2x"></i>
+            <i id="full-heart" class="fas fa-heart fa-2x"></i>
             <p>Wishlist</p>
           </a>
           <a href="{% url 'view_cart' %}" class="icon-wrapper">
@@ -216,7 +208,13 @@
       {% endblock %}
       
       <footer>
-        This is the footer
+        <div class="footer-top">
+          <a href="https://www.facebook.com" target="_blank"><i class="fab fa-2x fa-facebook-square"></i></a>
+          <a href="https://www.instagram.com" target="_blank"><i class="fab fa-2x fa-instagram-square"></i></a>
+          <a href="https://www.twitter.com" target="_blank"><i class="fab fa-2x fa-twitter-square"></i></a>
+          <a href="https://www.youtube.com" target="_blank"><i class="fab fa-2x fa-youtube-square"></i></a>
+        </div>
+        <div class="footer-bottom"><p>© Copyright Revaamp Inc.</p><p> All rights reserved.</p></div>
       </footer>
     </div>
   </body>
