@@ -17,11 +17,13 @@
                             <p>{{product.rating|floatformat:"0"}}/5 Stars</p>
                         </div>
                         <div class='product-description'>
-                            <form class="save-form" action="{% url 'add_to_saved' product.id %}" method="post">
-                            {% csrf_token %}
-                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                            <button type='submit' class='primary-btn sm mb8 mb16-lg'><i class="far fa-heart"></i></button>
-                            </form>
+                            {% if request.user.is_authenticated %}
+                                <form class="save-form" action="{% url 'add_to_saved' product.id %}" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                    <button type='submit' class='primary-btn sm mb8 mb16-lg'><i class="far fa-heart"></i></button>
+                                </form>
+                            {% endif %}
                             <p>{{ product.description}}</p>
                         </div>
                         <p class='product-category mb16-md'>in {{ product.category.friendly_name }}</p>

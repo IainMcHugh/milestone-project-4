@@ -1,6 +1,8 @@
-from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
+from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
 from django.contrib import messages
 
+from wishlist.models import SavedProduct
+from profiles.models import UserProfile
 from products.models import Product
 
 
@@ -8,24 +10,28 @@ def view_saved(request):
     """
     A view that renders the wishlist page
     """
-    return render(request, "wishlist/saved_ads.html")
+    profile = get_object_or_404(UserProfile, user=request.user)
+    saved = SavedProduct.objects.filter(user=profile)
+    context = {"saved_items": saved}
+    return render(request, "wishlist/saved_ads.html", context)
 
 
 def add_to_saved(request, item_id):
     """
     Add a product to the saved ads section
     """
-    product = get_object_or_404(Product, pk=item_id)
     redirect_url = request.POST.get("redirect_url")
-    saved = request.session.get("saved", {})
 
-    if item_id in list(saved.keys()):
+    product = get_object_or_404(Product, pk=item_id)
+    profile = get_object_or_404(UserProfile, user=request.user)
+    currently_saved = SavedProduct.objects.filter(user=profile, product=product)
+    if currently_saved:
         messages.info(request, f"You have already saved this item")
     else:
-        saved[item_id] = item_id
+        saved = SavedProduct(product=product, user=profile)
+        saved.save()
         messages.success(request, f"Added {product.name} to your wishlist.")
 
-    request.session["saved"] = saved
     return redirect(redirect_url)
 
 
@@ -33,12 +39,11 @@ def remove_from_saved(request, item_id):
     """
     Remove an item from the wishlist
     """
-    product = get_object_or_404(Product, pk=item_id)
     try:
-        saved = request.session.get("saved", {})
-        saved.pop(item_id)
+        product = get_object_or_404(Product, pk=item_id)
+        saved = SavedProduct.objects.filter(product=product)
+        saved.delete()
         messages.success(request, f"Removed {product.name} from wishlist")
-        request.session["saved"] = saved
         return HttpResponse(status=200)
     except Exception as e:
         messages.error(request, f"Oops! Something went wrong. {e}")

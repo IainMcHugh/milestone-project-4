@@ -57,6 +57,10 @@ header {
     display: none;
 }
 
+.mobile-header-buttons > a {
+    margin-right: 16px;
+}
+
 .header-dropdown {
     display: none;
     position: fixed;
@@ -961,6 +965,10 @@ footer {
     }
 
     .toggle-dropdown {
+        display: none;
+    }
+
+    .mobile-header-buttons {
         display: none;
     }
 
