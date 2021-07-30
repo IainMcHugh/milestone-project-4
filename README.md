@@ -4,7 +4,7 @@
 
 [View the live project here.](https://revaamp.herokuapp.com/)
 
-![WebApp Store](https://github.com/IainMcHugh/milestone-project-4/blob/main/static/images/mockup.png?raw=true)
+![WebApp Store](https://github.com/IainMcHugh/milestone-project-4/blob/main/readme_media/mockup.png?raw=true)
 
 Welcome to Revaamp! Revaamp is an ecommerce website that sells refurbished laptops and computers, as well as other tech periferals. As someone who uses a computer everyday and has built my own computer, I love to browse different PC parts websites and PC refurbished shops online. I would love at some point to create a fully fledged web application for an electronics shop and so this is where the inspiration for this project came from. Revaamp offers an end to end ecommerce experience for tech customers wishing to browse and purchase laptops and PCs.
 
@@ -303,7 +303,7 @@ heroku git:remote -a <YOUR HEROKU APP NAME>
 
 The following config variables will need to be setup in the `Settings` tab:
 
-![Reveal Config Vars](https://github.com/IainMcHugh/milestone-project-4/blob/main/static/images/config_vars.png?raw=true)
+![Reveal Config Vars](https://github.com/IainMcHugh/milestone-project-4/blob/main/readme_media/config_vars.png?raw=true)
 
 ## Setting up AWS static file hosting
 
