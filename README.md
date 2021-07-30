@@ -4,7 +4,7 @@
 
 [View the live project here.](https://revaamp.herokuapp.com/)
 
-![WebApp Store](https://github.com/IainMcHugh/milestone-project-4/blob/main/static/images/mockup.png?raw=true) CHANGE
+![WebApp Store](https://github.com/IainMcHugh/milestone-project-4/blob/main/static/images/mockup.png?raw=true)
 
 Welcome to Revaamp! Revaamp is an ecommerce website that sells refurbished laptops and computers, as well as other tech periferals. As someone who uses a computer everyday and has built my own computer, I love to browse different PC parts websites and PC refurbished shops online. I would love at some point to create a fully fledged web application for an electronics shop and so this is where the inspiration for this project came from. Revaamp offers an end to end ecommerce experience for tech customers wishing to browse and purchase laptops and PCs.
 
@@ -166,7 +166,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 ### Known Bugs
 
-- If the superuser deletes a product that is in his wishlist or shopping cart, this will give an error. I presume this error will carry over to any other user that has that item saved or in their shopping cart. To fix this, on load I should be checking if all cart items and saved items exist, and if not deleting them from the context. Ideally I would also want to give some visual feedback to the user as they will most likely be aware of a product dissapearing from their saved/cart.
+- I ran into a unique issue where the superuser deletes a product that is is being referenced in other models/contexts around the site. For example if another user has an item in their wishlist or shopping cart, it will throw an error when the superuser deletes that item. I got around this problem by adding a `soft_delete` field to the Product model which defaults to False. When the superuser now deletes a product, instead of hard deleting the product, the soft_delete flag is set to True. I then updated the views that retrieve instances of the Product model and first filter them by the `soft_delete` field. I have comprehensively tested this update for all user flows on the site as of making this change and this fix seems to have solved the problem. I will give special credit to this [Stackoverflow post](https://stackoverflow.com/a/50905650) where I learned how to correctly use `prefetch_related` in order to filter on an attribute of a model that acts as a foreign key (essentially prefetching all instances of that Model from the database once instead of requerying every time).
 
 ## Future Features
 
@@ -273,71 +273,117 @@ python3 manage.py createsuperuser
 From here you will need to set a username, email, and password.
 
 
-### Deploying to Heroku
+## Deploying to Heroku
 
-#### Steps
-
-1. The three packages that are required for this process (and should be installed now as part of requirements.txt) are:
+The three packages that are required for this process (and should be installed now as part of requirements.txt) are:
 
 - psycopg2-binary
 - dj-database-url
 - gunicorn
 
-2. Navigate to the [heroku](https://www.heroku.com) website and login or signup with a new account.
+### Steps
 
+1. Navigate to the [heroku](https://www.heroku.com) website and login or signup with a new account.
+2. Add a new heroku App, giving it a name and appropriate region.
+3. Navigate to the `Resources` tab and add the Heroku Postgres addon.
+4. You will need to update the allowed hosts array in `settings.py` to include your live domain. It will be of the format:
 
-```python
-import os
+```
+ALLOWED_HOSTS = ['<YOUR HEROKU APP NAME>.herokuapp.com']
 ```
 
-#### Setting up AWS static file hosting
+5. From the terminal you will then need to run `heroku login` and initialise the git remote with:
 
+```
+heroku git:remote -a <YOUR HEROKU APP NAME>
+```
 
-### Overview of Models
+6. You should now be able to deploy to heroku by running `git push heroku main`
+7. Optionally you can now setup automatic deployments from heroku by connecting your revaamp repo in the `Deploy` tab.
 
-I
+The following config variables will need to be setup in the `Settings` tab:
 
+![Reveal Config Vars](https://github.com/IainMcHugh/milestone-project-4/blob/main/static/images/config_vars.png?raw=true)
 
+## Setting up AWS static file hosting
 
+The two packages that are required for this process (and should be installed now as part of requirements.txt) are:
 
+- boto3
+- django-storages
 
+### Steps
 
+1. Navigate to [AWS](https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Fs3.console.aws.amazon.com%2Fs3%2Fbuckets%2Frevaamp%3Fregion%3Deu-west-1%26state%3DhashArgs%2523%26tab%3Dpermissions%26isauthcode%3Dtrue&client_id=arn%3Aaws%3Aiam%3A%3A015428540659%3Auser%2Fs3&forceMobileApp=0&code_challenge=AZTkrRJi3AhPQhXLciQhTdapQ5JWI_4aOMsjpSQp0C8&code_challenge_method=SHA-256) and create an account if you have not already done so.
+2. In the AWS console search for S3, choosing the option to Create a bucket.
+3. You will need to enable Static Website Hosting for the bucket, specifying the `Index document` as `index.html`
+4. In the permissions tab, paste the following CORS configuration:
 
+```
+[
+  {
+      "AllowedHeaders": [
+          "Authorization"
+      ],
+      "AllowedMethods": [
+          "GET"
+      ],
+      "AllowedOrigins": [
+          "*"
+      ],
+      "ExposeHeaders": []
+  }
+]
+```
+5. Navigate to the bucket policy tab, and generate a security policy associated with the S3 bucket.
 
+## Creating AWS Groups, Policies and Users
 
+### Steps
 
+1. In the AWS console search for and open IAM
+2. In the `Groups` tab, select `Create New Group` option, giving it an appropriate name.
+3. After creating a group, navigate to the `Policies` tab and select `Create Policy`
+4. With the JSON tab open, import the S3 prebuilt full access policy.
+5. The `Resource` value is currently set to allow all, this needs to be modified to only allow resources from the previously created bucket.
+6. In order to do this, get the bucket ARN and update the Resources with this.
+7. From here you can create the policy, filling out all required fields with appropriate values.
+8. You will need to navigate back the the `Groups` tab and select `Attach Policy`, and applying the policy just created.
+9. Finally you will need to create a user, by first navigationg to the `Users` tab and clicking `Add User`.
+10. Make sure to add this user to our newly created group.
+11. It is important here to download the `.csv` file that is generated when adding the new user.
+12. Create two new heroku config variables:
 
+```
+AWS_ACCESS_KEY_ID: This will be in the .csv file generated from AWS
+AWS_SECRET_ACCESS_KEY: This will be in the .csv file generated from AWS
+USE_AWS: True (As we always want production app to use AWS)
+```
 
-
-
-
-
-
-
-
+13. Any future pushes to the heroku remote repository should cause the web applications static files to be collected and added to the S3 bucket.
 
 ## Credits
 
 ### Code
 
-- [Django documentation](): 
+- [Django documentation](https://docs.djangoproject.com/en/3.2/): Definitely an extremely useful resource that I basically had open for the duration of my development. It was really important to me to be able to look up new resources in the course content here so I could get a detailed understanding.
 
-- [Allauth documentation]():
+- [Allauth documentation](https://django-allauth.readthedocs.io/en/latest/overview.html): I was amazed at how a package could abstract away so much of the authentication process for a web application while providing a high quality, all encompassing result. Again I used this documentation to teach myself as well as fixing any small issues I encountered with authentication flows.
 
-- [Crispy Forms documentation]():
+- [Crispy Forms documentation](https://django-crispy-forms.readthedocs.io/en/latest/): I loved using crispy forms and realised the more I used it the more customisation that was available to me. I used their documentation in particular to help me construct the commenting flow.
 
 ### Content
 
- ## Credits
+## Credits
 
- Source for colour scheme: https://coolors.co/531cb3-944bbb-aa7bc3-cc92c2-dba8ac
- Reset CSS: https://meyerweb.com/eric/tools/css/reset/
 
 - All content was written by Iain McHugh.
 
 - [Multi-mockup](https://techsini.com/multi-mockup/): A great resource for generating mockup displays for the site on various different screens and devices. Used for the cover photo of this readme file.
 
 - [Colour Scheme](https://coolors.co/531cb3-944bbb-aa7bc3-cc92c2-dba8ac): I can't recommend this site enough for getting quick and amazing colour templates for your website.
+
+- [Reset CSS](https://meyerweb.com/eric/tools/css/reset/): A tool I often use on projects to remove most of the default styling that the browser
 
 ### Media
 
@@ -351,7 +397,7 @@ I
 
 ### Acknowledgements
 
-- I would like to thank my mentor, Oluwafemi. It is great to have someone there who can give a refreshed viewing of your project, where it does well and what it's missing. These things become hard to spot when you're working on it everyday, and you know you can trust his insights as being really valuable, always bringing your project to a top level.
+- Most importantly I would like to thank my mentor Oluwafemi. He has been the primary source of guidance on this project for me, really helping me to set down a direction and flow for the site. It was extremely useful for me to have someone to bounce ideas and problems off and just having a second pair of eyes intermittently checking the progress of the site to make sure it delivers on it's core concepts. Thanks for all of your help on these 4 projects.
 
 - I also want to thank Code Institute in providing me with information and guides on how to structure my project. I really felt with this milestone project the video content Code Institute provided was essential for allowing me to lay the foundations of this project and get it up and running. While I feel the complexity has increased with each project, I feel very clear on how everything is working in this application.
 

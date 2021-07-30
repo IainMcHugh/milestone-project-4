@@ -11,16 +11,18 @@ def cart_contents(request):
     cart_items = []
     total = 0
     product_count = 0
-    related_products_cart = None
     cart = request.session.get("cart", {})
 
     for item_id, quantity in cart.items():
-        product = get_object_or_404(Product, pk=item_id)
-        total += quantity * product.price
-        product_count += quantity
-        cart_items.append(
-            {"item_id": item_id, "quantity": quantity, "product": product}
-        )
+        try:
+            product = Product.objects.filter(soft_delete=False).get(pk=item_id)
+            total += quantity * product.price
+            product_count += quantity
+            cart_items.append(
+                {"item_id": item_id, "quantity": quantity, "product": product}
+            )
+        except Product.DoesNotExist:
+            continue
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
@@ -35,10 +37,6 @@ def cart_contents(request):
         first_item_id = list(cart.items())[0][0]
         first_product = get_object_or_404(Product, pk=first_item_id)
 
-        related_products_cart = Product.objects.filter(
-            category=first_product.category
-        ).exclude(sku=first_product.sku)
-
     context = {
         "cart_items": cart_items,
         "total": total,
@@ -47,7 +45,6 @@ def cart_contents(request):
         "free_delivery_delta": free_delivery_delta,
         "free_delivery_threshold": settings.FREE_DELIVERY_THRESHOLD,
         "grand_total": grand_total,
-        "related_products_cart": related_products_cart,
     }
 
     return context

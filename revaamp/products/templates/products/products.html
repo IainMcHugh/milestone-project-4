@@ -42,11 +42,11 @@
                                 <img src="{{ product.image_url}}"/>
                             </div>
                             <div class="card-data">
-                                <p class="products-name">{{ product.name|truncatechars:30 }}</p>
+                                <p class="products-name">{{ product.name|truncatechars:35 }}</p>
                                 <p class="products-category">in {{ product.category.friendly_name }}</p>
                                 <div class="products-pricerating">
                                     <p class="products-price">€{{ product.price|floatformat:"2g" }}</p>
-                                    <p class="products-rating">{{ product.rating }}</p>
+                                    <p class="products-rating">{{ product.rating|floatformat:"0g" }}/5</p>
                                 </div>
                             </div>
                         </div>

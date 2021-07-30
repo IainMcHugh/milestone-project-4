@@ -80,7 +80,7 @@ def checkout(request):
             order.save()
             for item_id, item_data in cart.items():
                 try:
-                    product = Product.objects.get(id=item_id)
+                    product = Product.objects.filter(soft_delete=False).get(id=item_id)
                     order_line_item = OrderLineItem(
                         order=order,
                         product=product,

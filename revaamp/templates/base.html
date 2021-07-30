@@ -86,10 +86,6 @@
             <i class="fas fa-user-circle fa-2x"></i>
             <p>Account</p>
           </a>
-          <a href="{% url 'account_logout' %}" class="icon-wrapper">
-            <i class="fas fa-sign-out-alt fa-2x"></i>
-            <p>Logout</p>
-          </a>
         </div>
         {% else %}
         <div class="header-icons-container">
@@ -188,6 +184,15 @@
             <a href="{% url 'products' %}?category=mice">Mice</a>
             <a href="{% url 'products' %}?category=headphones">Headphones</a>
             <a href="{% url 'products' %}?category=keyboards,mice,headphones">All Accessories</a>
+          </ul>
+        </div>
+        <div class="dd-section">
+          <p>ALL</p>
+          <ul class='dd-ul'>
+            <a href="{% url 'products' %}?sort=price&direction=asc">By Price</a>
+            <a href="{% url 'products' %}?sort=rating&direction=desc">By Rating</a>
+            <a href="{% url 'products' %}?sort=category&direction=asc">By Category</a>
+            <a href="{% url 'products' %}">All Products</a>
           </ul>
         </div>
       </div>

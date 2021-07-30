@@ -14,6 +14,7 @@ class Category(models.Model):
 
 
 class Product(models.Model):
+    soft_delete = models.BooleanField(default=False)
     category = models.ForeignKey(
         "Category", null=True, blank=True, on_delete=models.SET_NULL
     )

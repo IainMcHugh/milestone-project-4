@@ -13,7 +13,7 @@ def all_products(request):
     A view to show all products, including sorting and search queries.
     """
 
-    products = Product.objects.all()
+    products = Product.objects.filter(soft_delete=False).all()
     query = None
     categories = None
     sort = None
@@ -68,7 +68,7 @@ def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
 
     related_products = Product.objects.filter(category=product.category).exclude(
-        sku=product.sku
+        sku=product.sku, soft_delete=True
     )
 
     context = {"product": product, "related_products": related_products}
@@ -116,7 +116,8 @@ def edit_product(request, product_id):
         messages.error(request, "Permission denied")
         return redirect(reverse("home"))
 
-    product = get_object_or_404(Product, pk=product_id)
+    product = Product.objects.filter(soft_delete=False).get(pk=product_id)
+
     if request.method == "POST":
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
@@ -149,8 +150,10 @@ def delete_product(request, product_id):
         messages.error(request, "Permission denied")
         return redirect(reverse("home"))
 
-    product = get_object_or_404(Product, pk=product_id)
-    product.delete()
+    product = Product.objects.filter(soft_delete=False).get(pk=product_id)
+    product.soft_delete = True
+    product.save()
+
     messages.success(request, "Product deleted")
     return redirect(reverse("products"))
 

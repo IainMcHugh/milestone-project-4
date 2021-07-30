@@ -23,18 +23,15 @@ class StripeWH_Handler:
         """Send the user a confirmation email"""
         cust_email = order.email
         subject = render_to_string(
-            'checkout/confirmation_emails/confirmation_email_subject.txt',
-            {'order': order})
-        body = render_to_string(
-            'checkout/confirmation_emails/confirmation_email_body.txt',
-            {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
-
-        send_mail(
-            subject,
-            body,
-            settings.DEFAULT_FROM_EMAIL,
-            [cust_email]
+            "checkout/confirmation_emails/confirmation_email_subject.txt",
+            {"order": order},
         )
+        body = render_to_string(
+            "checkout/confirmation_emails/confirmation_email_body.txt",
+            {"order": order, "contact_email": settings.DEFAULT_FROM_EMAIL},
+        )
+
+        send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [cust_email])
 
     def handle_event(self, event):
         """
@@ -64,7 +61,7 @@ class StripeWH_Handler:
         # Update profile information if save_info was checked
         profile = None
         username = intent.metadata.username
-        if username != 'AnonymousUser':
+        if username != "AnonymousUser":
             profile = UserProfile.objects.get(user__username=username)
             if save_info:
                 profile.default_phone_number = shipping_details.phone
@@ -123,7 +120,7 @@ class StripeWH_Handler:
                     stripe_pid=pid,
                 )
                 for item_id, item_data in json.loads(cart).items():
-                    product = Product.objects.get(id=item_id)
+                    product = Product.objects.filter(soft_delete=False).get(id=item_id)
                     order_line_item = OrderLineItem(
                         order=order,
                         product=product,

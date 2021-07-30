@@ -93,6 +93,11 @@ header {
     margin-bottom: 12px;
 }
 
+.dd-sections {
+    max-height: 60vh;
+    overflow: scroll;
+}
+
 .dd-section {
     margin-bottom: 24px;
 }

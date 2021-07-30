@@ -61,7 +61,10 @@
                     </div>
                 </div>
                 <h2 class="cart-title">Account Management</h2>
-                <a href="{% url 'account_reset_password' %}">Change your password</a>
+                <div class="account-management">
+                    <a class="go-to-comments sm" href="{% url 'account_reset_password' %}">Change your password</a>
+                    <a class="go-to-comments sm" href="{% url 'account_logout' %}">Logout</a>
+                </div>
             </div>
         </div>
 

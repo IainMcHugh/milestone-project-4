@@ -1,5 +1,6 @@
-from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
+from django.shortcuts import render, redirect, HttpResponse, get_object_or_404, reverse
 from django.contrib import messages
+from django.db.models import Prefetch
 
 from wishlist.models import SavedProduct
 from profiles.models import UserProfile
@@ -10,10 +11,18 @@ def view_saved(request):
     """
     A view that renders the wishlist page
     """
-    profile = get_object_or_404(UserProfile, user=request.user)
-    saved = SavedProduct.objects.filter(user=profile)
-    context = {"saved_items": saved}
-    return render(request, "wishlist/saved_ads.html", context)
+    if request.user.is_authenticated:
+        profile = get_object_or_404(UserProfile, user=request.user)
+        all_saved = SavedProduct.objects.filter(user=profile)
+        saved = all_saved.filter(product__soft_delete=False).prefetch_related(
+            Prefetch("product", queryset=Product.objects.filter(soft_delete=False))
+        )
+
+        context = {"saved_items": saved}
+        return render(request, "wishlist/saved_ads.html", context)
+    else:
+        messages.info(request, "You need to login first.")
+        return redirect(reverse("home"))
 
 
 def add_to_saved(request, item_id):
