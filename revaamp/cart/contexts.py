@@ -5,6 +5,9 @@ from products.models import Product
 
 # Context processor
 def cart_contents(request):
+    """
+    A context processor that will make cart contents available throughout the entire application
+    """
     cart_items = []
     total = 0
     product_count = 0
