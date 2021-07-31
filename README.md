@@ -24,6 +24,7 @@ Welcome to Revaamp! Revaamp is an ecommerce website that sells refurbished lapto
     8. As a returning user, I want to be able to see my order history against my profile.
     9. As a returning user, I want to receive confirmation emails when my order has successfully been processed.
     10. As a returning user, I want to be able to leave feedback against a product that I have purchased.
+    11. As a site owner, I want the ability to edit and delete products directly from the product page.
 
 - ### Design
   - #### Colour Scheme
@@ -62,6 +63,8 @@ Welcome to Revaamp! Revaamp is an ecommerce website that sells refurbished lapto
 
 - User profile with saved details
 
+- Full CRUD functionality for siteowner
+
 - Integrated stripe payment process
 
 - Fallback stripe webhook to guarantee order tracking
@@ -87,7 +90,7 @@ Welcome to Revaamp! Revaamp is an ecommerce website that sells refurbished lapto
    - Crispy Forms is a django plugin used to optimise form usage throughout the site.
 3. [Allauth:](https://django-allauth.readthedocs.io/en/latest/installation.html)
    - All auth is a django plugin that handles user auth flows and provides templates for each auth page.
-4. [Black:]()
+4. [Black:](https://pypi.org/project/black/)
    - Python code formatter to keep consistent code.
 5. [AWS Hosting Service](https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Fs3.console.aws.amazon.com%2Fs3%2Fbuckets%2Frevaamp%3Fregion%3Deu-west-1%26state%3DhashArgs%2523%26tab%3Dpermissions%26isauthcode%3Dtrue&client_id=arn%3Aaws%3Aiam%3A%3A015428540659%3Auser%2Fs3&forceMobileApp=0&code_challenge=AZTkrRJi3AhPQhXLciQhTdapQ5JWI_4aOMsjpSQp0C8&code_challenge_method=SHA-256)
    - AWS was used to host all static files associated with the site.
@@ -98,7 +101,7 @@ Welcome to Revaamp! Revaamp is an ecommerce website that sells refurbished lapto
 8. [Photoshop:](https://www.adobe.com/ie/products/photoshop.html)
    - Photoshop was used to edit the logo, resizing images and editing photos for the website.
 9. [Figma:](https://figma.com/)
-   - Figma was used to create the [wireframes](https://www.figma.com/file/Wp53CDl5Ljzn83ykMjByPD/WebApp-Store?node-id=0%3A1) during the design process.
+   - Figma was used to create the [wireframes](https://www.figma.com/file/lMTjTxxHjyL1UzxZzGcWme/Revaamp?node-id=0%3A1) during the design process.
 10. [Visual Studio Code:](https://visualstudio.com/)
    - VSCode was the IDE I used to create, update, and maintain this project.
 
@@ -156,13 +159,17 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
      1. Entering a product detail page, the user can select reviews to be brought to the comments section for a given product. Here they can read previous reviews left by other users, as well as leave their own review against the product. Along with a written review they need to give a star rating, and their review will be timestamped for others to see.
 
+  11. As a site owner, I want the ability to edit and delete products directly from the product page.
+
+     1. Logging in with an admin account, when viewing a product details page the admin will see two extra options to edit and delete that product. Selecting edit will open a form where they can change fields specific to that product and save their changes, while selecting delete will soft delete the item from the site, making it inaccessible for users.
+
 ### Further Testing
 
 - The Website was tested on Google Chrome, Internet Explorer, Microsoft Edge and Safari browsers.
 - The website was viewed on a variety of devices such as Desktop, Laptop, iPhone7, iPhone 8 & iPhoneX.
 - A large amount of testing was done to ensure that all pages were linking correctly.
 - Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues.
-- Multiple accounts were created and all of the sites functionality was tested, from CRUD operations to star rating system.
+- All site routes have been tested for authentication also and should correctly handle unauthenticated users.
 
 ### Known Bugs
 
@@ -170,7 +177,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 ## Future Features
 
-- As it is a refurbished laptop site, the intention is that the site owner gives a static rating to his own products. However after adding a reviews section, it would be great to add a user's rating data point that gets the average rating from that products reviews.
+- As it is a refurbished laptop site, the intention is that the site owner gives a static rating to his own products. However after adding a reviews section, it would be great to add a user's rating data point that gets the average user rating from that products reviews.
 
 - Currently on the wishlist page, a user can easily add a single item to their shopping cart. However I would like to extend this to allow them to multiselect items to add to cart. Also currently after adding to cart they must manually delete that product out of their wishlist. It could provide a better user experience to automatically remove this item from their wishlist, although I have seen both flows being utilised.
 
@@ -216,7 +223,7 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 
 You will need the following installed in order to run this project locally:
 
-- [PIP](https://pip.pypa.io/en/stable/installing/)
+- [pip](https://pip.pypa.io/en/stable/installing/)
 - [Python 3](https://www.python.org/downloads/)
 
 ## Creating a Virtual environment and installing dependencies
