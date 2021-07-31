@@ -121,47 +121,47 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
   1. As a site visitor, I want to a clear way to navigate the site to find what I'm looking for
 
-     1. The header provides product breakdowns by category so the user can search a specific section of products. There is also a search bar that will return results that match either the product title or product description, giving users a fast and convenient way to find the product they're looking for.
+      - The header provides product breakdowns by category so the user can search a specific section of products. There is also a search bar that will return results that match either the product title or product description, giving users a fast and convenient way to find the product they're looking for.
 
   2. As a site visitor, I want to be able to re-order my searches to suit my needs.
 
-     1. Within the header navigation there is also the 'All Products' sections, that allow users to organise products by price, rating, and categories alphabetically. Also when a user selects a product category they will see both tags and a drop down filter available on the products search page to further categorise their search.
+      - Within the header navigation there is also the 'All Products' sections, that allow users to organise products by price, rating, and categories alphabetically. Also when a user selects a product category they will see both tags and a drop down filter available on the products search page to further categorise their search.
 
   3. As a site visitor, I want to add products to a shopping cart and be notified when I have done so
 
-     1. When a user finds the product they are searching for, it is a one click process to add this item to their shopping cart. They also have the ability to set a quantity before adding to cart. When the item is added, they will receive a toast notification to let them know the item has been added successfully.
+      - When a user finds the product they are searching for, it is a one click process to add this item to their shopping cart. They also have the ability to set a quantity before adding to cart. When the item is added, they will receive a toast notification to let them know the item has been added successfully.
 
   4. As a site visitor, I want to a clear breakdown of the items I am buying at the checkout.
 
-     1. Navigating to the checkout, the user will see a clear list breakdown of all the products they have added. It gives them a thumbnail image of the product, the product price, quantity selected, and total cost for that item. After the product breakdown there is clear feedback given for the order total, any shipping costs, and a grand total.
+      - Navigating to the checkout, the user will see a clear list breakdown of all the products they have added. It gives them a thumbnail image of the product, the product price, quantity selected, and total cost for that item. After the product breakdown there is clear feedback given for the order total, any shipping costs, and a grand total.
 
   5. As a site visitor, I want a smooth checkout experience, where I feel confident my order has been recorded.
 
-     1. The Revaamp checkout experience features Stripe payment. The order process is as simple as entering the users card number and details on the checkout screen, and completing the order. While the user is then presented with a loading spinner, in the background a few things are happening to secure the users order and payment. Firstly, a payment intent is being sent to Stripe before then registering the order in the Revaamp database. Simultaneously we utilise Stripe web hooks that fire on the payment intent being registered. This will listen for a small window of time for the order being created, and if at the end the order can not be found the order will be created via the webhook call. This ensures that whenever a user completes an order and stripe payment intent is received they are guarenteed to have the order processed by Revaamp.
+      - The Revaamp checkout experience features Stripe payment. The order process is as simple as entering the users card number and details on the checkout screen, and completing the order. While the user is then presented with a loading spinner, in the background a few things are happening to secure the users order and payment. Firstly, a payment intent is being sent to Stripe before then registering the order in the Revaamp database. Simultaneously we utilise Stripe web hooks that fire on the payment intent being registered. This will listen for a small window of time for the order being created, and if at the end the order can not be found the order will be created via the webhook call. This ensures that whenever a user completes an order and stripe payment intent is received they are guarenteed to have the order processed by Revaamp.
 
   6. As a returning user, I want to be able to see my save products so I can review them.
 
-     1. Along with shopping cart functionality, Revaamp also provides a wishlist page that allows users to save products. In essence this allows them to create their own section of products they're particularly interested in. To ensure a good UX flow from the wishlist page, the user can both access the products details page from a specific product, as well as add any saved product directly to their shopping cart. They can also delete products out of their saved products.
+      - Along with shopping cart functionality, Revaamp also provides a wishlist page that allows users to save products. In essence this allows them to create their own section of products they're particularly interested in. To ensure a good UX flow from the wishlist page, the user can both access the products details page from a specific product, as well as add any saved product directly to their shopping cart. They can also delete products out of their saved products.
 
   7. As a returning user, I want to be able to save my shipping details to improve my checkout experience.
 
-     1. For returning users it is a straightforward process to add and save shipping details. If the user simply navigates to their account page they can fill in their details here, which will automatically update their details on the checkout page. Similarly if they fill out their details on the checkout page and select to save their details, it will update their account details and use the same information for future checkout sessions.
+      - For returning users it is a straightforward process to add and save shipping details. If the user simply navigates to their account page they can fill in their details here, which will automatically update their details on the checkout page. Similarly if they fill out their details on the checkout page and select to save their details, it will update their account details and use the same information for future checkout sessions.
 
   8. As a returning user, I want to be able to see my order history against my profile.
 
-     1. On a user's account page, they can access a full breakdown of all of their previous orders. It will provide them the order number, order date, order items, and order total. Clicking through to the order will give a full breakdown that they would have received when first successfully submitting the order.
+      - On a user's account page, they can access a full breakdown of all of their previous orders. It will provide them the order number, order date, order items, and order total. Clicking through to the order will give a full breakdown that they would have received when first successfully submitting the order.
 
   9. As a returning user, I want to receive confirmation emails when my order has successfully been processed.
 
-     1. After a user's order has been successfully submitted, the user is brought to a checkout success page where they will see a full breakdown of their order. Simultaneously they will receive an email with the same order information, which gives them further peace of mind that their order has successfully been processed.
+      - After a user's order has been successfully submitted, the user is brought to a checkout success page where they will see a full breakdown of their order. Simultaneously they will receive an email with the same order information, which gives them further peace of mind that their order has successfully been processed.
 
   10. As a returning user, I want to be able to leave feedback against a product that I have purchased.
 
-     1. Entering a product detail page, the user can select reviews to be brought to the comments section for a given product. Here they can read previous reviews left by other users, as well as leave their own review against the product. Along with a written review they need to give a star rating, and their review will be timestamped for others to see.
+      - Entering a product detail page, the user can select reviews to be brought to the comments section for a given product. Here they can read previous reviews left by other users, as well as leave their own review against the product. Along with a written review they need to give a star rating, and their review will be timestamped for others to see.
 
   11. As a site owner, I want the ability to edit and delete products directly from the product page.
 
-     1. Logging in with an admin account, when viewing a product details page the admin will see two extra options to edit and delete that product. Selecting edit will open a form where they can change fields specific to that product and save their changes, while selecting delete will soft delete the item from the site, making it inaccessible for users.
+      - Logging in with an admin account, when viewing a product details page the admin will see two extra options to edit and delete that product. Selecting edit will open a form where they can change fields specific to that product and save their changes, while selecting delete will soft delete the item from the site, making it inaccessible for users.
 
 ### Further Testing
 
@@ -368,6 +368,24 @@ USE_AWS: True (As we always want production app to use AWS)
 ```
 
 13. Any future pushes to the heroku remote repository should cause the web applications static files to be collected and added to the S3 bucket.
+
+## Stripe Integration
+
+### Steps
+
+1. Navigate to [Stripe](https://www.stripe.com) and sign in or create an account.
+2. Obtain the `STRIPE_PUBLIC_KEY` and `STRIPE_SECRET_KEY`, adding them to Heroku config variables.
+3. In the Developers section, open the `Webhooks` tab and select __Add endpoint__
+4. For the __Endpoint URL__, add the following:
+
+```
+https://<YOUR DEPLOYED APPLICATION>/checkout/wh
+```
+
+5. Make sure to select receive all events.
+6. Add the webhooks secret key to the Heroku config vars, referring to it as `STRIPE_WH_SECRET`
+
+(Note: In order to test Stripe webhooks on your local machine you must use the Stripe CLI, for more information on how to set this up follow: [Stripe-CLI/webhooks](https://stripe.com/docs/stripe-cli/webhooks). You must also export the stripe environment variables from the root directory of the project.)
 
 ## Credits
 
